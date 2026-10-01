@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { hashPassword } from "@/lib/password";
+import { ADMIN_VIEW_COOKIE_NAME } from "@/lib/admin-view";
 import {
   createSessionToken,
   sessionCookieOptions,
@@ -61,7 +62,7 @@ export async function POST(request: NextRequest) {
   }
 
   const jurado = await prisma.jurado.findUnique({ where: { id: payload.sub } });
-  if (!jurado) {
+  if (!jurado?.active) {
     return NextResponse.json({ error: "Jurado no encontrado." }, { status: 404 });
   }
 
@@ -82,9 +83,10 @@ export async function POST(request: NextRequest) {
 
   const sessionToken = await createSessionToken(jurado.id, jurado.email);
   const response = NextResponse.json({
-    jurado: { id: jurado.id, fullName: jurado.fullName, email: jurado.email },
+    jurado: { id: jurado.id, fullName: jurado.fullName, email: jurado.email, role: jurado.role },
   });
   response.cookies.set(SESSION_COOKIE_NAME, sessionToken, sessionCookieOptions);
   response.cookies.delete(SET_PASSWORD_COOKIE_NAME);
+  response.cookies.delete(ADMIN_VIEW_COOKIE_NAME);
   return response;
 }

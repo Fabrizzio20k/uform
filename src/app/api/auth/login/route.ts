@@ -10,6 +10,7 @@ import {
   SET_PASSWORD_COOKIE_NAME,
 } from "@/lib/session";
 import { getClientIp, isRateLimited, recordLoginAttempt } from "@/lib/rate-limit";
+import { ADMIN_VIEW_COOKIE_NAME } from "@/lib/admin-view";
 
 const GENERIC_ERROR = "Usuario y/o contraseña incorrecto.";
 
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
   const normalizedEmail = email.trim().toLowerCase();
   const jurado = await prisma.jurado.findUnique({ where: { email: normalizedEmail } });
 
-  if (!jurado) {
+  if (!jurado?.active) {
     await recordLoginAttempt(ip, normalizedEmail, false);
     return NextResponse.json({ error: GENERIC_ERROR }, { status: 401 });
   }
@@ -68,8 +69,9 @@ export async function POST(request: NextRequest) {
   const token = await createSessionToken(jurado.id, jurado.email);
   const response = NextResponse.json({
     firstLogin: false,
-    jurado: { id: jurado.id, fullName: jurado.fullName, email: jurado.email },
+    jurado: { id: jurado.id, fullName: jurado.fullName, email: jurado.email, role: jurado.role },
   });
   response.cookies.set(SESSION_COOKIE_NAME, token, sessionCookieOptions);
+  response.cookies.delete(ADMIN_VIEW_COOKIE_NAME);
   return response;
 }

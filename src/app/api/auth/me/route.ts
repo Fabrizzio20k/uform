@@ -15,12 +15,12 @@ export async function GET(request: NextRequest) {
 
   const jurado = await prisma.jurado.findUnique({
     where: { id: payload.sub },
-    select: { id: true, fullName: true, email: true },
+    select: { id: true, fullName: true, email: true, role: true, active: true },
   });
 
-  if (!jurado) {
+  if (!jurado?.active) {
     return NextResponse.json({ jurado: null }, { status: 401 });
   }
 
-  return NextResponse.json({ jurado });
+  return NextResponse.json({ jurado: { id: jurado.id, fullName: jurado.fullName, email: jurado.email, role: jurado.role } });
 }

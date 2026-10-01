@@ -35,7 +35,7 @@ export default function SetPasswordPage() {
         return;
       }
 
-      router.push("/proyectos");
+      router.push(data.jurado.role === "ADMIN" ? "/admin" : "/proyectos");
     } catch {
       setError("Ocurrió un error de conexión. Intenta de nuevo.");
     } finally {

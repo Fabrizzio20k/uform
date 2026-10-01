@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Base de datos y administradores
+
+Configura `DIRECT_URL` (conexión de sesión para Prisma CLI) y `DATABASE_URL` (conexión de la aplicación y el seed) en `.env`. Ejecuta `npm run db:generate` después de instalar dependencias.
+
+El seed registra a `ahidalgod@utec.edu.pe`, `fabrizzio785@gmail.com` y `fabrizzio.vilchez.e@utec.edu.pe` como administradores. Al ingresar por primera vez, cada uno establece su propia contraseña igual que un jurado. Un admin puede alternar entre **Ver como admin** y **Ver como jurado** desde el encabezado. En la vista jurado usa su propia cuenta para evaluar proyectos; cada cuenta puede evaluar un proyecto una sola vez y varios jurados pueden evaluar el mismo proyecto. Las cuentas desactivadas no pueden ingresar ni evaluar.
+
+El panel `/admin` permite registrar, editar y desactivar jurados; corregir datos de proyectos; consultar puntajes; exportar las evaluaciones vigentes a CSV; y anular una evaluación con motivo para que el jurado pueda enviarla de nuevo. Una anulación guarda una copia de los puntajes originales y retira la evaluación del ranking. La categoría de un proyecto no se puede cambiar después de recibir evaluaciones. Los correos de jurados no se pueden cambiar tras el alta porque forman parte del hash de su contraseña. Las asignaciones jurado–proyecto siguen pendientes de definición en `PENDIENTES.md`.
+
+Para actualizar una base existente sin borrar datos, ejecuta `npx prisma migrate deploy` y `npm run db:generate`.
+
+`npm run db:reset` elimina todos los datos de la base configurada, aplica las migraciones y vuelve a ejecutar el seed. Úsalo únicamente con una base de desarrollo.
+
 ## Getting Started
 
 First, run the development server:

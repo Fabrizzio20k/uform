@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
+import { ADMIN_VIEW_COOKIE_NAME, adminViewFromCookie } from "@/lib/admin-view";
 
 const MIN_PUNTAJE = 1;
 const MAX_PUNTAJE = 4;
@@ -14,6 +15,15 @@ export async function POST(request: NextRequest) {
   const session = await getSession(request);
   if (!session) {
     return NextResponse.json({ error: "No autenticado." }, { status: 401 });
+  }
+
+  const jurado = await prisma.jurado.findUnique({
+    where: { id: session.sub },
+    select: { role: true },
+  });
+  const adminEvaluando = jurado?.role === "ADMIN" && adminViewFromCookie(request.cookies.get(ADMIN_VIEW_COOKIE_NAME)?.value) === "jurado";
+  if (jurado?.role !== "JURADO" && !adminEvaluando) {
+    return NextResponse.json({ error: "Activa la vista jurado para evaluar proyectos." }, { status: 403 });
   }
 
   let body: unknown;

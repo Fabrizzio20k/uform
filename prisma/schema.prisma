@@ -12,9 +12,11 @@ datasource db {
 // ---------------------------------------------------------------------------
 
 model Jurado {
-  id        String   @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
-  email     String   @unique
+  id        String     @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  email     String     @unique
   fullName  String
+  role      RolUsuario @default(JURADO)
+  active    Boolean    @default(true)
   phone     String?
   position  String?
   faculty   String?
@@ -30,6 +32,11 @@ model Jurado {
   evaluaciones Evaluacion[]
 
   @@map("jurados")
+}
+
+enum RolUsuario {
+  JURADO
+  ADMIN
 }
 
 // ---------------------------------------------------------------------------
@@ -167,6 +174,26 @@ model Evaluacion {
   @@index([proyectoId, scoreTotal])
   @@index([juradoId])
   @@map("evaluaciones")
+}
+
+// Copia inmutable de una evaluación anulada. La evaluación original se elimina
+// para liberar la restricción jurado/proyecto y permitir un nuevo envío.
+model EvaluacionAnulada {
+  id           String   @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  evaluacionId String   @unique @db.Uuid
+  juradoEmail  String
+  juradoNombre String
+  proyectoId   String   @db.Uuid
+  proyectoNombre String
+  adminEmail   String
+  motivo       String   @db.VarChar(500)
+  scoreTotal   Decimal  @db.Decimal(6, 3)
+  puntajes     Json
+  creadaAt     DateTime
+  anuladaAt    DateTime @default(now())
+
+  @@index([proyectoId])
+  @@map("evaluaciones_anuladas")
 }
 
 // Puntaje (1-4) que un jurado asignó a un criterio específico dentro de una

@@ -69,7 +69,7 @@ export default function LoginPage() {
         return;
       }
 
-      router.push("/proyectos");
+      router.push(data.jurado.role === "ADMIN" ? "/admin" : "/proyectos");
     } catch {
       setError("Ocurrió un error de conexión. Intenta de nuevo.");
     } finally {
@@ -117,9 +117,9 @@ export default function LoginPage() {
               </p>
             </div>
 
-            <h1 className="text-2xl font-semibold">Ingreso de jurados</h1>
+            <h1 className="text-2xl font-semibold">Ingreso</h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Ingresa tu correo institucional para continuar.
+              Ingresa tu correo registrado para continuar.
             </p>
 
             <motion.div

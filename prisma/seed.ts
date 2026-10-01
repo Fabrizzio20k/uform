@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
-import { PrismaClient, TipoRubrica } from "../src/generated/prisma/client.js";
+import { PrismaClient, RolUsuario, TipoRubrica } from "../src/generated/prisma/client.js";
 import seedData from "./seed-data.json" with { type: "json" };
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
@@ -27,6 +27,20 @@ async function main() {
     });
   }
   console.log(`  ${seedData.jurados.length} jurados sedeados.`);
+
+  const adminEmails = [
+    "ahidalgod@utec.edu.pe",
+    "fabrizzio785@gmail.com",
+    "fabrizzio.vilchez.e@utec.edu.pe",
+  ];
+  for (const email of adminEmails) {
+    await prisma.jurado.upsert({
+      where: { email },
+      update: { role: RolUsuario.ADMIN },
+      create: { email, fullName: email, role: RolUsuario.ADMIN },
+    });
+  }
+  console.log(`  ${adminEmails.length} administradores sedeados.`);
 
   console.log("Seed: rúbricas, criterios y categorías...");
   for (const rubricaData of seedData.rubricas) {

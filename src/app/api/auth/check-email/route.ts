@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
   const normalizedEmail = email.trim().toLowerCase();
   const jurado = await prisma.jurado.findUnique({ where: { email: normalizedEmail } });
 
-  if (!jurado) {
+  if (!jurado?.active) {
     await recordLoginAttempt(ip, normalizedEmail, false);
     return NextResponse.json({ error: GENERIC_ERROR }, { status: 401 });
   }

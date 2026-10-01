@@ -16,8 +16,8 @@ export async function resolveJurado(token: string | undefined) {
 
   const jurado = await prisma.jurado.findUnique({
     where: { id: payload.sub },
-    select: { id: true, fullName: true, email: true },
+    select: { id: true, fullName: true, email: true, role: true, active: true },
   });
 
-  return jurado;
+  return jurado?.active ? jurado : null;
 }
