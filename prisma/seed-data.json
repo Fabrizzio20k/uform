@@ -1,0 +1,973 @@
+{
+  "jurados": [
+    {
+      "email": "eramirez@utec.edu.pe",
+      "fullName": "Elmer Ramirez Quiroz",
+      "phone": "954775797",
+      "position": "Docente Tiempo Completo (TC)",
+      "faculty": "Departamento Académico de Ingeniería Mecánica y de la Energía"
+    },
+    {
+      "email": "mwdkim@utec.edu.pe",
+      "fullName": "Wangdo Kim",
+      "phone": "991013286",
+      "position": "Docente Tiempo Completo (TC)",
+      "faculty": "Departamento Académico de Ingeniería Mecánica y de la Energía"
+    },
+    {
+      "email": "gmarcone@utec.edu.pe",
+      "fullName": "Giancarlo Marcone",
+      "phone": "943413544",
+      "position": "Director/a",
+      "faculty": "Departamento Académico de Humanidades"
+    },
+    {
+      "email": "evillicana@utec.edu.pe",
+      "fullName": "Eunice Villicaña Ortiz",
+      "phone": "989109136",
+      "position": "Decano",
+      "faculty": "Facultad de Ingeniería"
+    },
+    {
+      "email": "aacero@utec.edu.pe",
+      "fullName": "Alfredo Acero",
+      "phone": "979163616",
+      "position": "Docente Tiempo Parcial (TP)",
+      "faculty": "Departamento Académico de Administración y Negocios Digitales"
+    },
+    {
+      "email": "gvargas@utec.edu.pe",
+      "fullName": "Guillermo Vargas de la Guarda",
+      "phone": "995 408 409",
+      "position": "Docente Tiempo Parcial (TP)",
+      "faculty": "Departamento Académico de Administración y Negocios Digitales"
+    },
+    {
+      "email": "fernando.vilela@utec.edu.pe",
+      "fullName": "Fernando Jaime Vilela López",
+      "phone": "991559559",
+      "position": "Docente Tiempo Parcial (TP)",
+      "faculty": "Departamento Académico de Administración y Negocios Digitales"
+    },
+    {
+      "email": "gpella@utec.edu.pe",
+      "fullName": "Gabriela Pella Fernández",
+      "phone": "999369855",
+      "position": "Docente Tiempo Completo (TC)",
+      "faculty": "Departamento Académico de Ingeniería Industrial y Gestión de la Ingeniería"
+    },
+    {
+      "email": "cpereira@utec.edu.pe",
+      "fullName": "CARLOS ALBERTO PEREIRA CASTRO",
+      "phone": "992142107",
+      "position": "Docente Tiempo Parcial (TP)",
+      "faculty": "Departamento Académico de Humanidades"
+    }
+  ],
+  "rubricas": [
+    {
+      "nombre": "Stand + Póster",
+      "tipo": "STAND_POSTER",
+      "criterios": [
+        {
+          "nombre": "Problema y propuesta",
+          "descripcion": "El proyecto responde a una necesidad real y sustentada del usuario o contexto. El problema está claramente definido y es relevante. La solución propuesta es pertinente, sólida, bien argumentada, no trivial y viable.",
+          "pesos": [
+            {
+              "categoria": "Cursos introductorios",
+              "peso": 0.15
+            },
+            {
+              "categoria": "Proyectos Interdisciplinarios 3",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Cursos de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Proyectos finales de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Innovación Académica e Investigación",
+              "peso": 0.2
+            }
+          ]
+        },
+        {
+          "nombre": "Contenido técnico",
+          "descripcion": "Contenido riguroso, preciso y bien articulado. Demuestra dominio conceptual y profundidad técnica.",
+          "pesos": [
+            {
+              "categoria": "Cursos introductorios",
+              "peso": 0.15
+            },
+            {
+              "categoria": "Proyectos Interdisciplinarios 3",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Cursos de carrera",
+              "peso": 0.25
+            },
+            {
+              "categoria": "Proyectos finales de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Innovación Académica e Investigación",
+              "peso": 0.15
+            }
+          ]
+        },
+        {
+          "nombre": "Presentación de resultados",
+          "descripcion": "Presenta evidencia sólida, bien interpretada y claramente conectada con la solución (datos, experimentos, prototipos o simulaciones).",
+          "pesos": [
+            {
+              "categoria": "Cursos introductorios",
+              "peso": 0.25
+            },
+            {
+              "categoria": "Proyectos Interdisciplinarios 3",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Cursos de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Proyectos finales de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Innovación Académica e Investigación",
+              "peso": 0.2
+            }
+          ]
+        },
+        {
+          "nombre": "Dominio del tema",
+          "descripcion": "Demuestra dominio completo: explica con precisión, justifica decisiones y responde preguntas con solvencia.",
+          "pesos": [
+            {
+              "categoria": "Cursos introductorios",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Proyectos Interdisciplinarios 3",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Cursos de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Proyectos finales de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Innovación Académica e Investigación",
+              "peso": 0.2
+            }
+          ]
+        },
+        {
+          "nombre": "Diseño y comunicación visual",
+          "descripcion": "Póster altamente claro, bien estructurado y visualmente efectivo. Flujo intuitivo, excelente legibilidad, uso estratégico del diseño y sin errores.",
+          "pesos": [
+            {
+              "categoria": "Cursos introductorios",
+              "peso": 0.25
+            },
+            {
+              "categoria": "Proyectos Interdisciplinarios 3",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Cursos de carrera",
+              "peso": 0.15
+            },
+            {
+              "categoria": "Proyectos finales de carrera",
+              "peso": 0.2
+            },
+            {
+              "categoria": "Innovación Académica e Investigación",
+              "peso": 0.25
+            }
+          ]
+        }
+      ],
+      "categorias": [
+        "Cursos introductorios",
+        "Proyectos Interdisciplinarios 3",
+        "Cursos de carrera",
+        "Proyectos finales de carrera",
+        "Innovación Académica e Investigación"
+      ]
+    },
+    {
+      "nombre": "Elevator Pitch",
+      "tipo": "ELEVATOR_PITCH",
+      "criterios": [
+        {
+          "nombre": "Propuesta y argumentación",
+          "descripcion": "El proyecto responde a una necesidad real y sustentada del usuario o contexto. El problema está claramente definido y es relevante. La solución propuesta es pertinente, sólida, bien argumentada, no trivial y viable.",
+          "pesos": [
+            {
+              "categoria": "Emprendimiento e Innovación",
+              "peso": 0.25
+            }
+          ]
+        },
+        {
+          "nombre": "Metodología",
+          "descripcion": "Metodología clara, lógica y bien estructurada. Los pasos están optimizados y alineados con los objetivos del proyecto.",
+          "pesos": [
+            {
+              "categoria": "Emprendimiento e Innovación",
+              "peso": 0.2
+            }
+          ]
+        },
+        {
+          "nombre": "Validación de resultados",
+          "descripcion": "Presenta validación clara (datos o pruebas) y resultados bien interpretados que sustentan la propuesta.",
+          "pesos": [
+            {
+              "categoria": "Emprendimiento e Innovación",
+              "peso": 0.15
+            }
+          ]
+        },
+        {
+          "nombre": "Viabilidad e implementación",
+          "descripcion": "Presenta una visión clara de implementación: costos, recursos y aliados estratégicos bien identificados. Propuesta realista y ejecutable.",
+          "pesos": [
+            {
+              "categoria": "Emprendimiento e Innovación",
+              "peso": 0.15
+            }
+          ]
+        },
+        {
+          "nombre": "Comunicación y presentación",
+          "descripcion": "Comunicación clara, concisa y convincente. Excelente uso de soportes, manejo del tiempo y conexión efectiva con la audiencia.",
+          "pesos": [
+            {
+              "categoria": "Emprendimiento e Innovación",
+              "peso": 0.25
+            }
+          ]
+        }
+      ],
+      "categorias": [
+        "Emprendimiento e Innovación"
+      ]
+    }
+  ],
+  "proyectos": [
+    {
+      "area": "Administración y Negocios Digitales",
+      "categoria": "Cursos introductorios",
+      "nombre": "Egrescorp",
+      "descripcion": "Sistema de gestión de las finanzas para restaurantes de Lima.",
+      "integrantesRaw": "Andrea Ana Morales Moreno\nFabiola Niurka Cornejo Quispe\nRaquel Leticia Bolarte Santos",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Presentación",
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Administración y Negocios Digitales",
+      "categoria": "Cursos de carrera",
+      "nombre": "DASH",
+      "descripcion": "El proyecto resuelve el problema para los universitarios de zonas con alta concentración de universidades en Lima — como los alrededores de la UTEC, San Marcos, UNI o UPC — que no tienen una forma rápida de conectar con negocios locales cercanos (restaurantes, tiendas, eventos, almacenes) que necesitan apoyo laboral puntual de 1 a 2 días, lo que provoca que desperdicien sus días libres sin generar ingresos ni experiencia, mientras esos negocios pierden ventas o productividad por falta de personal temporal.",
+      "integrantesRaw": "Eurymar De Los Angeles Umbria Salas\nDayra Alejandra Barboza Usco",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Presentación",
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Administración y Negocios Digitales",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Predictable.ai",
+      "descripcion": "Predictable.ai: Es el primer Revenue OS de LATAM. Es una plataforma AI-Native para generar leads B2B con intervención humana estratégica, no operativa. Da inteligencia de mercado, la traduce en un plan de prospección y el AI recuerda toda la información para darte asesoría en vivo durante las llamadas de venta; dejando un reporte con métricas clave para el monitoreo y seguimiento.",
+      "integrantesRaw": "Van Oordt Arbulu Aaron Carlo\nDel Negro Yabar Giuseppe Antonio",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Presentación",
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Business Analytics",
+      "categoria": "Cursos introductorios",
+      "nombre": "MODELO DE PREDICCIÓN PARA FIDELIZAR CLIENTES EN UNA VETERINARIA",
+      "descripcion": "El proyecto busca desarrollar  modelos predictivos que permitan identificar qué clientes tienen mayor probabilidad de suscribirse a los servicios de la veterinaria y cuáles presentan un mayor riesgo de cancelar o abandonar. A partir del análisis de información sobre comportamiento, frecuencia de visitas, servicios utilizados y características de los clientes, se espera generar una herramienta que apoye la toma de decisiones y permita diseñar estrategias de fidelización más efectivas.",
+      "integrantesRaw": "Mariafernanda Giuliana Quiñones Carrillo",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Presentación",
+      "requerimientoTecnico": "Presentación"
+    },
+    {
+      "area": "Ingeniería Industrial",
+      "categoria": "Cursos introductorios",
+      "nombre": "Diagnóstico y Propuesta de Mejora Integral para la Restaurant Cevichería \"A tu Gusto\"",
+      "descripcion": "El proyecto analizó el funcionamiento del restaurante-cevichería \"A tu Gusto\" para identificar sus principales carencias, detectando problemas de atención, comunicación, distribución, delivery e infraestructura. A partir del diagnóstico se proponen mejoras para mejorar a eficiencia de los procesos, reducir errores y mejorar la atención al cliente.",
+      "integrantesRaw": "Fabiola Katterine Torres Mamani\nAlexis Omar Parinango Cordova\nDerosi Steven Silva Chávez\nJoaquín Alberto Uriarte Pinto\nJennifer Alexandra Huapaya Lozano",
+      "numeroIntegrantes": 5,
+      "dimensiones": "N/A",
+      "requerimientoTecnico": "Se requiere un punto de corriente eléctrica para alimentar la laptop"
+    },
+    {
+      "area": "Ingeniería Industrial",
+      "categoria": "Cursos de carrera",
+      "nombre": "Optimización de la programación de órdenes en un laboratorio geoquímico mediante Iterated Tabu Search",
+      "descripcion": "El proyecto plantea y resuelve una versión formal del problema de programación de órdenes del laboratorio, con el objetivo de minimizar el tiempo promedio de finalización de las órdenes, respetando las rutas de tareas de cada esquema de análisis y las capacidades de los recursos compartidos. Para ello se desarrolló un método metaheurístico llamado Iterated Tabu Search (ITS), que combina: (i) GRASP, para construir soluciones iniciales diversas a partir de distintos criterios de prioridad; (ii) una Búsqueda Tabú (Tabu Search) con una vecindad crítica de movimientos INSERT y SWAP, memoria de corto plazo (lista tabú con tenencia dinámica) y criterio de aspiración; y (iii) un esquema ILS (Iterated Local Search) con diversificación mediante el operador double-bridge, que permite escapar de óptimos locales y explorar regiones distintas del espacio de soluciones.",
+      "integrantesRaw": "Kiara Paola Valencia Trujillo\nCarlos Alberto Ramos Caceres",
+      "numeroIntegrantes": 2,
+      "dimensiones": "N/A",
+      "requerimientoTecnico": "Se requiere un punto de corriente eléctrica para alimentar la laptop"
+    },
+    {
+      "area": "Ingeniería Industrial",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Decisiones secuenciales para la asignación comercial de productos frescos en exportación: un sistema de apoyo a la toma de decisiones en la ejecución de la campaña de cosecha",
+      "descripcion": "Sistema de apoyo a decisiones que integra modelos de optimización para replanificar la asignación comercial y ejecutar diariamente el plan de exportación de productos frescos, adaptándose a cambios en disponibilidad, demanda y condiciones operativas para mejorar el cumplimiento del plan comercial y la rentabilidad.",
+      "integrantesRaw": "Imanol Felix Supo Mamani\nAbel Jaime Rivera Olaza.",
+      "numeroIntegrantes": 2,
+      "dimensiones": "N/A",
+      "requerimientoTecnico": "Se requiere un punto de corriente eléctrica para alimentar la laptop"
+    },
+    {
+      "area": "Ciberseguridad",
+      "categoria": "Cursos introductorios",
+      "nombre": "Estrategia defensiva y campaña de concientización contra phishing",
+      "descripcion": "Análisis de seguridad compañía simulada debido a una brecha por phishing. El proyecto propone una campaña de concientización contra phishing, incluyendo presupuesto, linea de tiempo y modelo de entrenamiento.",
+      "integrantesRaw": "Angel Mescua Osorio\nSebastian Gonzales Roque\nJhosep Huaman Acapana",
+      "numeroIntegrantes": 3,
+      "dimensiones": "N/A",
+      "requerimientoTecnico": "Corriente eléctrica para alimentar laptop"
+    },
+    {
+      "area": "Ciencia de Datos e Inteligencia Artificial",
+      "categoria": "Cursos introductorios",
+      "nombre": "Airline Passenger Satisfaction",
+      "descripcion": "Este proyecto analiza y correlaciona los datos de los pasajeros de una aerolínea para que, mediante un modelo de Machine Learning, pueda predecir si clientes nuevos quedarán satisfechos o no.",
+      "integrantesRaw": "Ken Castagnetto\nPaolo Solano\nMatias Chavez",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Ciencia de Datos e Inteligencia Artificial",
+      "categoria": "Cursos de carrera",
+      "nombre": "Dermis – Tu piel, nuestra ciencia",
+      "descripcion": "Dermis utiliza algoritmos de Inteligencia Artificial para analizar tu piel y ofrecerte una rutina de cuidado personalizada, basándose en tu tipo de piel y condiciones. Cada producto recomendado contiene ingredientes activos y compatibles con tus necesidades específicas. Cuidar tu piel nunca fue más sencillo, ven y conoce Dermis",
+      "integrantesRaw": "Camila Acosta\nJimena Gurbillón\nAndrea Coa",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Ciencia de Datos e Inteligencia Artificial",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "El efecto de los puntos de interés y la topología de la red vial en la distribución espacial del crimen urbano",
+      "descripcion": "Pipeline reproducible que proyecta cada crimen a los nodos de la red vial, calcula un campo de densidad gaussiano geodésico por mes y extrae los top-K subgrafos mediante join tree y persistencia topológica. Construye embeddings de cada subgrafo y los proyecta con UMAP para agruparlos por similitud, permitiendo contrastar la composición de POIs de zonas similares frente a su intensidad delictiva.",
+      "integrantesRaw": "César Pajuelo",
+      "numeroIntegrantes": 1,
+      "dimensiones": null,
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Ciencia de la Computación",
+      "categoria": "Cursos introductorios",
+      "nombre": "Reconocimiento automático de dígitos manuscritos mediante distancias euclidianas y el algoritmos de K-Nearest Neighbors (KNN)",
+      "descripcion": "Sistema de Inteligencia Artificial capaz de reconocer dígitos escritos a mano. El proyecto procesa los dibujos realizados por los alumnos y los transforma en imágenes de 8 x 8 píxeles para compararlos con otros 1797 ejemplos de dígitos previamente clasificados. Mediante distancias euclidianas y los 3 ejemplares más similares, el sistema determina qué dígito fue escrito. Su desempeño se valida mediante matrices de confusión e indicadores de clasificación para evaluar sus aciertos y errores en los diez dígitos.",
+      "integrantesRaw": "Pedro Daniel Benites Gonzales — pedro.benites@utec.edu.pe\nJuan Diego Butler Seclén — juan.butler@utec.edu.pe\nAdrián Gabriel Alejandro Salazar Lezcano — adrian.salazar@utec.edu.pe",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Ciencia de la Computación",
+      "categoria": "Cursos de carrera",
+      "nombre": "Aurora Climb",
+      "descripcion": "Aurora Climb es un similador de escalada. Es una aplicación de realidad virtual que derriba las barreras geográficas, económicas y físicas para practicar escalada. Su objetivo es ofrecer una experiencia de ascenso inmersiva, segura y físicamente exigente desde cualquier lugar. El usuario escala paredes de montaña con sus propias manos: se sujeta de los agarres con los controladores, coordina el balanceo de su cuerpo y asciende hasta la cima, donde contempla una vista panorámica.\n\nAl llegar, recibe estadísticas de su desempeño que lo motivan a conquistar nuevas rutas. Todo en un entorno realista que combina reto, adrenalina y conexión con la naturaleza.",
+      "integrantesRaw": "Jorge Melgarejo\nBrigitte Rojas\nLaura Nagamine",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla, lentes de realidad virtual Meta."
+    },
+    {
+      "area": "Ciencia de la Computación",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Moving Gaussians",
+      "descripcion": "Siempre vemos al video como una secuencia de imágenes. Y si lo imagináramos como algo continuo? Esta representación permite eso. Permite \"predecir\" algunos segundos de video, permite restaurar videos rotos, y abre la puerta para explorar técnicas de compresión de video.",
+      "integrantesRaw": "Leandro Machaca\nMauro Bobadilla",
+      "numeroIntegrantes": 2,
+      "dimensiones": null,
+      "requerimientoTecnico": "Pantalla grande, mesa para laptop, cable HDMI para conectar la laptop con la pantalla, toma corriente para laptop y para la pantalla."
+    },
+    {
+      "area": "Sistemas de Información",
+      "categoria": "Cursos introductorios",
+      "nombre": "Agrolink",
+      "descripcion": "AgroLink fue un proyecto introductorio orientado a conectar directamente a pequeños agricultores con potenciales mercados.\nSe propusieron soluciones a los problemas de intermediación, falta de trazabilidad y brecha digital mediante interfaces centradas en productores y compradores.\nLa propuesta evolucionó desde wireframes de baja fidelidad hasta mockups y un prototipo interactivo de alta fidelidad desarrollado en Figma.\nComo resultado, se diseñó una experiencia que facilita el comercio directo, el seguimiento de productos y pedidos, y la inclusión digital en contextos rurales.",
+      "integrantesRaw": "Sebastian Fabricio Añanca Esquerre\nFabricio Raul Ricapa Perez Roca\nTiago Jordan Mar\nGabriel Ignacio Vergara Chinchay\nRolando Sebastián Salazar Sánchez",
+      "numeroIntegrantes": 5,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Sistemas de Información",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "App para planificación inteligente de eventos, gestión en tiempo real y preservación digital de recuerdos audiovisuales, integrada con IA predictiva y enfoque de interacción social",
+      "descripcion": "Se diseñó e implementó un recomendador conversacional basado en LLM para facilitar la búsqueda de proveedores en un marketplace de servicios para eventos.\nEl sistema recopila las necesidades del usuario, mantiene un plan persistente y genera recomendaciones fundamentadas en datos reales mediante APIs e índices semánticos.\nSu evaluación en 150 conversaciones alcanzó un 88,67 % de finalización técnica, 98,15 % de extracción de necesidades y 100 % de consistencia en las categorías recomendadas.\nLos resultados validan la arquitectura propuesta e identifican la calidad de recuperación y la integridad de los datos de proveedores como principales oportunidades de mejora.",
+      "integrantesRaw": "Leonardo Matias Candio Ormeño",
+      "numeroIntegrantes": 1,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Bioingeniería",
+      "categoria": "Cursos de carrera",
+      "nombre": "MAX7",
+      "descripcion": "MAX7 es una propuesta de sistema modular y de bajo costo orientada a fortalecer el monitoreo materno entre controles prenatales, especialmente en comunidades rurales y zonas con acceso limitado a servicios de salud. La arquitectura propuesta integra tres módulos complementarios, un parche abdominal y una pulsera para la adquisición de señales fisiológicas tanto de la madre como del niño, y un módulo portátil de urianálisis para el tamizaje semicuantitativo de proteinuria (albúminas) mediante tiras reactivas a partir de fotos tomadas por un celular. El sistema contempla además comunicación mediante SMS para reducir la dependencia de una conexión continua a Internet. MAX7 se plantea como una herramienta complementaria de alerta temprana que permita identificar potenciales señales de riesgo y favorecer una evaluación clínica y derivación oportunas, sin sustituir el diagnóstico ni la atención realizada por profesionales de salud.",
+      "integrantesRaw": "Víctor Reque\nAndrea Coa\nVíctor Guevara",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "1 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Bioingeniería",
+      "categoria": "Cursos de carrera",
+      "nombre": "Espectrofotómetro casero",
+      "descripcion": "El proyecto es un modelo de un espectrofotómetro a pequeña escala para demostrar el funcionamiento del equipo que utilizamos en el laboratorio para la cuantificación de proteínas. Utilizando conceptos de las propiedades de las ondas de luz y la ley de Beer-Lambert.",
+      "integrantesRaw": "Hannah Andrea López Silva, \nMarcelo Daniel Rodríguez Fernández\nPriamo César Rodas Muñoz\nSarahí Juliet Suárez Walttuoni",
+      "numeroIntegrantes": 4,
+      "dimensiones": "El proyecto es un circuito físico tangible conectado a una laptop. En total todo mide aproximadamente 60 cm × 25 cm.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "Bioingeniería",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Diseño computacional de un constructo vacunal multiepítopo contra Helicobacter pylori desarrollada en el contexto peruano",
+      "descripcion": "Desarrollo computacional de un candidato vacunal multiepítopo contra Helicobacter pylori, adaptado al contexto genético de la población peruana. Se analizaron 27 cepas peruanas y 51 cepas de referencia globales para caracterizar la variabilidad genética de ocho factores de virulencia y generar secuencias consenso. Mediante herramientas de inmunoinformática, se identificaron y seleccionaron 16 epítopos con características favorables de antigenicidad, conservación, seguridad y cobertura poblacional, alcanzando una cobertura estimada de 99,93 % para Perú. Finalmente, se construyó y validó computacionalmente el candidato vacunal, que mostró adecuada solubilidad y estabilidad estructural, además de una alta afinidad de interacción con TLR4.",
+      "integrantesRaw": "Aixa Torres\nFiorella Falcón \nRodrigo Romero",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Requiere únicamente el espacio necesario para colocar una laptop",
+      "requerimientoTecnico": "Se requiere un punto de corriente eléctrica para alimentar la laptop y realizar la presentación visual del constructo vacunal final."
+    },
+    {
+      "area": "Ingeniería Química",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "DISEÑO DE UNA PLANTA DE PRODUCCIÓN DE POLIETILENO VERDE DE ALTA DENSIDAD A PARTIR DE BIOETANOL EN EL PERÚ",
+      "descripcion": "El proyecto aborda la necesidad de desarrollar alternativas más sostenibles frente a la producción convencional de polietileno, altamente dependiente de materias primas fósiles y asociada a elevadas emisiones de gases de efecto invernadero. En este contexto, se propone el diseño de una planta de producción de polietileno verde de alta densidad a partir de bioetanol en el Perú. Para ello, se integra la producción de bioetileno mediante deshidratación catalítica de bioetanol y su posterior polimerización para obtener diferentes grados de HDPE, evaluando su viabilidad técnica, económica, ambiental y de seguridad.",
+      "integrantesRaw": "Adriana Castilla Aguirre\nAndre Rodrigo Aldasabal Arias \nFabiana Carmen Strobbe Vargas",
+      "numeroIntegrantes": 3,
+      "dimensiones": "No hay un prototipo físico, se mostrarán simulaciones del proyecto mediante una laptop.",
+      "requerimientoTecnico": "Un TV para mostrar la simulación en los software utilizados, y una toma de corriente eléctrica para la laptop."
+    },
+    {
+      "area": "Ingeniería Ambiental",
+      "categoria": "Cursos introductorios",
+      "nombre": "Remoción del azul de metileno (C₁₆H₁₈ClN₃S) mediante bioadsorbentes elaborados a partir de cáscara de huevo (Gallus gallus domesticus) y coronta de maíz (Zea mays) en efluentes textiles simulados",
+      "descripcion": "Se desarrollaron bioadsorbentes a partir del aprovechamiento de residuos orgánicos como la cáscara de huevo y la coronta de maíz utilizados como materiales adsorbentes para remover colorantes de los efluentes textiles simulados. Para evaluar su funcionamiento se utilizó el azul de metileno (C₁₆H₁₈ClN₃S) como muestra para el experimento ya que es común su uso en la industria textil para teñir fibras naturales como seda, lana o algodón. Finalmente, los resultados preliminares sugieren que la alternativa planteada puede contribuir a reducir la concentración de colorantes presentes en el agua tratada. De este modo, promoviendo una economía circular de bajo costo para el tratamiento de efluentes textiles. Es así, que, como producto entregable, se desarrolló un sistema experimental de filtración basado en bioadsorbentes elaborados a partir de cáscara de huevo y coronta de maíz",
+      "integrantesRaw": "Aguado Gallart, Almudena\nChirinos Zelada, Ricardo Raimundo \nGonzales Machco, Khiara Milagros\nSaldarriaga Miranda, Sofia",
+      "numeroIntegrantes": 4,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "1 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Ingeniería Ambiental",
+      "categoria": "Cursos de carrera",
+      "nombre": "Estimación de caudales extremos e inundación mediante SIG, SCS-CN, Random Forest como Estimación de caudales extremos e inundación mediante SIG, SCS-CN, Random Forest como emulador hidrológico y HAND + Manning en el río Huallaga, tramo San Rafael emulador hidrológico y HAND + Manning en el río Huallaga, tramo San Rafael emulador hidrológico y HAND + Manning en el río Huallaga, tramo San Rafael Huancapata/Ambo, Huánuco Huancapata/Ambo, Huánuco",
+      "descripcion": "Las inundaciones en la cuenca del río Huallaga, tramo San Rafael - Ambo, representan una amenaza recurrente para la infraestructura, los centros poblados y las actividades ubicadas cerca del cauce. La ausencia de una estación hidrométrica directa en el punto de control Huancapata - Ambo limita la aplicación de modelos calibrados con caudal observado. Por ello, este proyecto propone una metodología integrada que combina Sistemas de Información Geográfica (SIG), análisis estadístico de precipitaciones extremas, el método SCS-CN, un motor de transformación lluvia - escorrentía y Random Forest como emulador hidrológico.",
+      "integrantesRaw": "Rojas Puente Bhran Jhelder\nRojas Matienzo Maria Alejandra\nWegner Oliveros Pauline Aida",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "1 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Ingeniería Ambiental",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Diseño de una solución basada en la naturaleza para la reducción de nitratos en un canal de Pantanos de Villa",
+      "descripcion": "El proyecto involucra el componente de trabajo con PROHVILLA, monitoreo de parámetros de calidad de agua, validación estadística y ECA ambiental, y modelamiento en Matlab",
+      "integrantesRaw": "Diana Jayo\nNicoll Aguilar",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "1 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Ingeniería Civil",
+      "categoria": "Cursos introductorios",
+      "nombre": "La Arena (Piura)",
+      "descripcion": "Sistema de Drenaje pluvial y Resiliencia Hídrica\nReemplazo de tuberías de drenaje deficientes por unos marcos de concreto armado con dimensiones de 1.5m x 1.5m, las estructuras se priorizan en las depresiones topográficas naturales y los cruces de canales de riego para permitir el paso de grandes caudales en época de lluvias y palizada sin tener la preocupación de obstruirse, protegiendo la base de la carretera y las estructuras que la rodean.",
+      "integrantesRaw": "Oscar Flores Valencia\nGonzalo Rojas Zaira\nGustavo Espinoza Julcapoma",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "1 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Ingeniería Civil",
+      "categoria": "Cursos de carrera",
+      "nombre": "Desafío Boorie",
+      "descripcion": "Boorie es un proyecto tecnológico que utiliza Inteligencia Artificial Generativa para ayudar a las empresas de agua potable y saneamiento a reducir las pérdidas de agua y mejorar su eficiencia energética.\nEn pocas palabras, es como un \"asistente inteligente\" para la gestión del agua. Su objetivo principal es atacar el problema del agua no registrada (el agua que se pierde en el proceso, que a nivel mundial es un promedio del 37%), ayudando a las empresas a detectar fugas y optimizar sus operaciones.\nEl proyecto es impulsado por BID Lab (el laboratorio de innovación del Banco Interamericano de Desarrollo) y está diseñado bajo el concepto de Industria 5.0, que busca integrar la tecnología con un enfoque humano y sostenible",
+      "integrantesRaw": "Rubén Ríos Chipana \nKevin Heymer Núñez Flores",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "2 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Ingeniería Civil",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Diseño y caracterización de concretos de ultra alto desempeño para la construcción y reparación de infraestructuras",
+      "descripcion": "El proyecto consiste en el diseño y la caracterización de un concreto especial de alto desempeño, conocido como concreto de ultra alto desempeño (UHPC, por sus siglas en inglés), fabricado a partir de materiales disponibles localmente. Este material se distingue por presentar una resistencia a la compresión hasta seis veces superior a la de un concreto convencional, además de una elevada fluidez en estado fresco que le confiere excelente trabajabilidad y capacidad de autocompactación, propiedades que permiten su aplicación en elementos estructurales esbeltos, en refuerzos y reparaciones de infraestructuras existentes, y en construcciones expuestas a condiciones ambientales severas o cargas elevadas, donde se requiere mayor durabilidad y una reducción significativa de las dimensiones de los elementos estructurales. Para el diseño de las mezclas se desarrolló una aplicación computacional en lenguaje Python, basada en el modelo teórico de empaquetamiento de partículas de Andreasen y Andersen modificado, la cual permite optimizar la proporción de los materiales granulares (cemento, humo de sílice, arena de sílice y carbonato de calcio) con el fin de minimizar la porosidad de la matriz y maximizar la compacidad del sistema, agilizando el proceso iterativo de dosificación y facilitando el ajuste de las curvas granulométricas al modelo teórico de referencia. Este enfoque, complementado con el uso de aditivos superplastificantes de última generación, posibilita la obtención de mezclas con muy baja relación agua/cemento y alta densidad, lo que se traduce en una microestructura más compacta y en las elevadas prestaciones mecánicas características del UHPC.",
+      "integrantesRaw": "Wilder David Salvador Tanta\nKevin heymer Núñez Flores",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Una mesa estándar de 1 m^2 será suficiente para presentar el prototipo, sus módulos y material gráfico complementario.",
+      "requerimientoTecnico": "2 punto de corriente eléctrica para alimentación/carga de los dispositivos y equipos de demostración. Espacio para una laptop destinada a la demostración y presentación del sistema. Mesa estándar para exhibición de los módulos del prototipo."
+    },
+    {
+      "area": "Ingeniería de la Energía",
+      "categoria": "Cursos de carrera",
+      "nombre": "Elaboración del gemelo digital del sistema interconectado del Perú en ETAP",
+      "descripcion": "Modelamiento del Sistema Eléctrico Nacional utilizando el software ETAP, para estudios de flujo de potencia y cortocircuito. Con la coordinación de la empresa Electrointegra y el COES.",
+      "integrantesRaw": "Andrés Ricasca Jara\nBruno Sanchéz Rojas",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Simulación del sistema con sofweare",
+      "requerimientoTecnico": "Mesa y computadora"
+    },
+    {
+      "area": "Ingeniería de la Energía",
+      "categoria": "Cursos de carrera",
+      "nombre": "DISEÑO DE UNA PLANTA POWER-TO-METHANOL PARA LA VALORIZACIÓN DEL CO2 DE UNA CENTRAL TERMOELÉCTRICA MEDIANTE HIDRÓGENO VERDE Y PRODUCCIÓN DE E-METANOL",
+      "descripcion": "Se evidencia que las centrales termoeléctricas emiten grandes volúmenes de CO2. Este proyecto propone capturar ese CO2 y sintetizarlo en metanol (e-metanol) usando hidrógeno verde (H2 producido por electrólisis con energía eléctrica renovable) como reductor químico. El proceso integra la captura de carbono, síntesis catalítica y aprovechamiento de la energía térmica residual de la planta térmica. El e-metanol producido es un combustible limpio reutilizable en transporte e industria química, y contribuye a cerrar un ciclo de economía circular. La propuesta mejora la rentabilidad de la central térmica al monetizar sus emisiones, simultáneamente reduciendo su huella de carbono.",
+      "integrantesRaw": "- Adriana Castilla\n- Andre Aldasabal\n- Epson Pisfil",
+      "numeroIntegrantes": 3,
+      "dimensiones": "POSTER",
+      "requerimientoTecnico": "POSTER"
+    },
+    {
+      "area": "Ingeniería de la Energía",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Diseño de un sistema de control y supervisión basando en la tecnología T500 para la automatización de una subestación",
+      "descripcion": "Configuración de la plataforma de Hardward y Software de la tecnología T500 para la automatización de los dispositivos de una subestación eléctrica. Con la asesoría de la empresa Schneider Electric.",
+      "integrantesRaw": "Evelyn Sarmiento Zubilete\nAndrés Ricasca Jara\nPiero Peña Flores",
+      "numeroIntegrantes": 3,
+      "dimensiones": "2 x 1 m",
+      "requerimientoTecnico": "Mesa y pantalla"
+    },
+    {
+      "area": "Ingeniería de la Mecánica",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Sistema Biomecánico Inmersivo para la Rehabilitación del Tobillo Basado en Realidad Virtual y Señales Electromiográficas.",
+      "descripcion": "Prototipo de un sistema funcional de rehabilitación de tobillo que integra realidad virtual inmersiva, electromiografía de superficie (sEMG) y captura inercial del movimiento mediante Xsens. El sistema está diseñado para demostrar ejercicios terapéuticos y proporcionar biofeedback mediante variables como el %MVC y el rango de movimiento articular (ROM) en tiempo real.",
+      "integrantesRaw": "Ana Cecilia Ordinola Chunga \nMilagros Pozo\nJhoselin Sarai Ashnati Rosales",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Sistema wearable sobre una persona. Área demostrativa aprox. 2 × 2 m",
+      "requerimientoTecnico": "Mesa, laptop/PC y punto de corriente. Espacio libre aprox. 2 × 2 m para demostración de movimient"
+    },
+    {
+      "area": "Ingeniería de la Mecánica",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Diseño y desarrollo de un prototipo funcional de un mecanismo robótico para asistir a la terapia de estimulación táctil en neonatos.",
+      "descripcion": "El proyecto consiste en el desarrollo de un mecanismo robótico compacto destinado a reproducir de manera controlada los movimientos requeridos durante la terapia de estimulación táctil neonatal. El prototipo integra un mecanismo de desplazamiento longitudinal de doble paralelogramo, un mecanismo radial basado en un Centro Remoto de Movimiento (RCM) con eslabones tipo tijera y un efector final blando para la interacción con el paciente. El sistema busca generar trayectorias repetibles sobre el torso neonatal manteniendo condiciones seguras de movimiento y contacto.",
+      "integrantesRaw": "Alagon Aguilar, Parwa \nCoronado Salcedo, Enzo",
+      "numeroIntegrantes": 2,
+      "dimensiones": "45cm x 20cm",
+      "requerimientoTecnico": "Una mesa o superficie con prensa para sujetar el mecanismo."
+    },
+    {
+      "area": "Ingeniería de la Mecánica",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "Exoflex: Exoesqueleto robótico flexible para recién nacidos",
+      "descripcion": "El proyecto resuelve la falta de acceso a terapias físicas tempranas para recién nacidos con mielomeningocele en el Perú mediante la automatización de su rehabilitación. Para lograrlo, se desarrolló un exoesqueleto robótico pediátrico con actuadores blandos que ejecuta movimientos terapéuticos seguros en el infante; adaptándose automáticamente al paciente para brindar una terapia suave, libre de tirones y sin requerir recalibraciones manuales, ofreciendo así una solución segura y accesible frente a la escasez de personal médico especializado.",
+      "integrantesRaw": "Gonzalo Alonso Lopez Ttito",
+      "numeroIntegrantes": 1,
+      "dimensiones": "1.2m x 1m",
+      "requerimientoTecnico": "Toma corrientes, espacio para cámara de vacío, espacio para compresora de aire, espacio para cableado, red de internet y ordenador disponible."
+    },
+    {
+      "area": "Ingeniería de la Electrónica",
+      "categoria": "Cursos introductorios",
+      "nombre": "COM-AID: Integración de Control Inalámbrico y Seguridad Autónoma en un Robot Móvil Semiautomático",
+      "descripcion": "COM-AID es un robot móvil semiautomático que cuenta con un sistema de detección de obstáculos y control inalámbrico mediante Bluetooth, a través de una aplicación desarrollada en App Inventor. Utiliza un sensor ultrasónico para medir la distancia frontal e implementa un mecanismo de alerta de tres niveles según la proximidad del obstáculo. Además, incorpora una pantalla LCD para mostrar el estado del sistema y un shield PCB diseñado a medida para facilitar y mejorar las conexiones entre los componentes.",
+      "integrantesRaw": "Medina Cevallos, Alexandra\nMorales Orvezo, Rosario\nPillaca Llanos, Ariadna",
+      "numeroIntegrantes": 3,
+      "dimensiones": "20 cm de largo x 15 cm de ancho x 12 cm de alto",
+      "requerimientoTecnico": "2 puntos adicionales, Una mesa para colocar la laptop y el prototipo. Un área despejada sobre la mesa o en el piso cercano, para realizar las pruebas de desplazamiento y los niveles de emergencia ante obstáculos."
+    },
+    {
+      "area": "Ingeniería de la Electrónica",
+      "categoria": "Cursos de carrera",
+      "nombre": "Desarrollo de un sistema embebido de bajo consumo energético para el monitoreo autónomo de parámetros fluviales",
+      "descripcion": "El proyecto consiste en el desarrollo de una boya capaz de realizar el monitoreo autónomo de distintos parámetros de calidad del agua. Para ello, se integraron sensores de Atlas Scientific para la medición de oxígeno disuelto, pH y conductividad eléctrica, además de un sensor de temperatura de uso común en proyectos con Arduino. Los sensores se integran al sistema embebido para realizar la adquisición y procesamiento de los datos.\nPara la transmisión de la información se implementaron módulos LoRa, que permiten enviar los datos hacia un gateway. También se desarrolló la página web de visualización, donde se pueden consultar y graficar las mediciones y su histórico de datos.\nEn cuanto a los requerimientos técnicos, durante las pruebas observamos que el alcance de comunicación de los módulos LoRa fue menor al esperado, probablemente debido a la ubicación del módulo y la antena utilizada. Por ello, sería recomendable contar con el gateway ubicado en un punto relativamente céntrico respecto a la zona de demostración, además de requerir un punto de corriente eléctrica para su alimentación.",
+      "integrantesRaw": "Sebastian Raymundo Peña Capitan – sebastian.pena@utec.edu.pe\nAngel Maximiliano Centurion Paucar – angel.centurion@utec.edu.pe",
+      "numeroIntegrantes": 2,
+      "dimensiones": "Aproximadamente 30 × 30 × 30 cm, considerando la estructura completa de la boya.",
+      "requerimientoTecnico": "1 punto de corriente eléctrica para la alimentación del gateway.\nUbicación del gateway en un punto céntrico para facilitar la comunicación con la boya mediante LoRa"
+    },
+    {
+      "area": "Ingeniería de la Electrónica",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Desarrollo de un Sistema de Detección de Anomalías en Procesos Industriales de Formado de Alimentos en Edge Computing.",
+      "descripcion": "El sistema monitorea un proceso secuencial de formado de alimentos controlado por un PLC Siemens S7-1200, adquiriendo de forma no intrusiva 26 señales del proceso. Un modelo de aprendizaje no supervisado, embebido en un FPGA sobre plataforma Zynq-7000, procesa las señales localmente y detecta desviaciones respecto al comportamiento normal sin necesidad de enviar datos a la nube. Cuando se detecta una anomalía, el sistema la identifica asi como, la señal más afectada y la reporta en un dashboard web.",
+      "integrantesRaw": "Sebastian Tabraj Morales\nVíctor Agustín Huanca Salcedo\nYulinio Zavala Mariño",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Tablero: 55 cm de largo x 35 cm de ancho x 55 cm de alto",
+      "requerimientoTecnico": "2 puntos en total : 1 laptop y 1 para el proyecto"
+    },
+    {
+      "area": "Ingeniería de la Mecatrónica",
+      "categoria": "Cursos introductorios",
+      "nombre": "R.A.M: Robot Asistente Móvil",
+      "descripcion": "El Robot Asistente Móvil (RAM) es un prototipo de bajo costo para transportar cargas ligeras en interiores, capaz de seguir la palma de la mano mediante visión por computadora. Integra una Raspberry Pi 5, Arduino Uno y sensores ultrasónicos para el control y seguridad, además de un modo manual mediante Bluetooth. Su chasis de MDF cortado por láser lo convierte en una solución accesible para entornos educativos y de laboratorio.",
+      "integrantesRaw": "Paulo Leon\nBenjamín Centeno\nKevin Handa\nAlessandro Mejía\nLeonardo Meza",
+      "numeroIntegrantes": null,
+      "dimensiones": "40 cm de largo x 30 cm de ancho x 60 cm de alto",
+      "requerimientoTecnico": "2 puntos adicionales, Dentro de lo posible espacio para que el robot pueda circular libremente"
+    },
+    {
+      "area": "Ingeniería de la Mecatrónica",
+      "categoria": "Cursos de carrera",
+      "nombre": "Sistema Robotizado para la Clasificación Automática de Frutas mediante Visión Artificial y un Manipulador Serial",
+      "descripcion": "El proyecto desarrolla un sistema robotizado para la clasificación automática de frutas mediante visión artificial. Una cámara identifica el color y posición de cada fruta, mientras un brazo robótico de 4 grados de libertad utiliza cinemática inversa y control PID para recogerla y depositarla en el contenedor correspondiente. El sistema integra OpenCV, ESP32, ROS 2 y micro-ROS, ofreciendo una solución de bajo costo para tareas repetitivas de clasificación.",
+      "integrantesRaw": "Cartagena, Alessandro\nHuamanchumo, Gabriel\nMariños, Marcelo\nDiaz Ayala\nFlores, Thomas",
+      "numeroIntegrantes": 5,
+      "dimensiones": "55 cm de largo x 70 cm de ancho x 75 cm de alto",
+      "requerimientoTecnico": "3 puntos adicionales"
+    },
+    {
+      "area": "Ingeniería de la Mecatrónica",
+      "categoria": "Proyectos finales de carrera",
+      "nombre": "Diseño e Implementación de un Vehículo Submarino Operado Remotamente (ROV) para la Detección de Botellas Plásticas y Monitoreo en un Entorno Acuático.",
+      "descripcion": "Es un Vehículo Submarino Operado Remotamente (ROV) de clase observación diseñado para el monitoreo de ecosistemas acuáticos. El sistema integra procesamiento en el borde (Edge AI) mediante una Raspberry Pi 5 y un controlador Pixhawk, permitiendo la detección autónoma de plásticos submarinos en tiempo real mediante visión computacional.",
+      "integrantesRaw": "Diago Tucto \nDiego Lopez\nYerson Ramos",
+      "numeroIntegrantes": 3,
+      "dimensiones": "50 cm de largo x 40 cm de ancho x 30 cm de alto",
+      "requerimientoTecnico": "Dos mesas: 1 redonda de 80 cm de diámetro y 1 mesa adicional de 1.2 m x 0.6 m. 1 tomacorrientes con cuatro salidas cercanas a las mesas. Se utilizará el tanque del L209 (Dimensiones: 65 cm x 75 cm x 75 cm)"
+    },
+    {
+      "area": "UTEC Ventures",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "Viringo AI",
+      "descripcion": "Cumplimiento tributario ante SUNAT operado por IA para pymes peruanas. Tu contador AI que te avisa antes de que preguntes, 24/7.",
+      "integrantesRaw": "Ronaldo Diaz",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "UTEC Ventures",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "Bildin",
+      "descripcion": "Plataforma basada en la nube e inteligencia artificial para la gestión de recursos, control de mano de obra y medición de productividad en proyectos de construcción.",
+      "integrantesRaw": "Alejandro Goicochea",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "UTEC Ventures",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "NotaryOS",
+      "descripcion": "La notaría entera, en un solo sistema. Sistema operativo notarial con 31 tipos de trámite, consultas automáticas a SUNARP y RENIEC, y documentos generados con las plantillas de su propia notaría.",
+      "integrantesRaw": "Gian Piero Davila",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "UTEC Ventures",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "NOS",
+      "descripcion": "Plataforma financiera digital para organizaciones y asociaciones productivas.",
+      "integrantesRaw": "Gian Franco Davila",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "UTEC Ventures",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "Proyecto de Monitoreo Inteligente para construcción",
+      "descripcion": "Monitoreo inteligente de la producción en construcción: IA y Computer Vision aplicados en obra",
+      "integrantesRaw": "William Yalico",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "Posgrado_Tech MBA",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "CORA",
+      "descripcion": "CORA es una Plataforma Financiera Productiva con el propósito de contribuir con el bienestar, crecimiento y prosperidad de las MYPES y las familias que las conforman, a través del financiamiento, desarrollo de capacidades, formación de buenos hábitos para la salud financiera, escalamiento de operaciones e inclusión financiera.",
+      "integrantesRaw": "Miguel Vargas\nAndrea Castro \nAna Luis Johnson",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "Posgrado_Tech MBA",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "ELADIA",
+      "descripcion": "Eladia es un asistente virtual con inteligencia artificial para optimizar la gestión de proyectos en el sector inmobiliario, con un enfoque inicial en el rubro de la construcción y el diseño arquitectónico. Integrado en WhatsApp, se conecta con herramientas como Excel, mejorando la coordinación, seguimiento de tareas y comunicación en tiempo real.",
+      "integrantesRaw": "Nikolas Carpio\nElizabeth Gayoso\nYeni Villanueva",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "Posgrado_Tech MBA",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "Elige +",
+      "descripcion": "ELIGE+ es una solución tecnológica orientada a mejorar la forma en que actualmente se realiza la compra de deuda vehicular en el sistema financiero peruano.",
+      "integrantesRaw": "Ayrton Mercado\nAlejandro Ruiz \nMarcela Aparicio",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "Posgrado_Tech MBA",
+      "categoria": "Emprendimiento e Innovación",
+      "nombre": "Mi Voz",
+      "descripcion": "Plataforma digital que conecta el hogar con la terapia para niños con autismo en tiempo real, automatizando rutinas visuales en 34 segundos y transformando el comportamiento diario en data clínica accionable mediante IA multimodal.",
+      "integrantesRaw": "Maria Andrea de Vinatea\nMirelli Pajares \nVictor Amaya",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Presentación digital. Para stand: mesa estándar.",
+      "requerimientoTecnico": "Sólo se requiere conexión a un tomacorriente para la laptop."
+    },
+    {
+      "area": "Dirección de Investigación",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "Catalogación de obras de arte y adecuación del depósito del Monasterio de Santa Teresa de Ayacucho",
+      "descripcion": "Fortalecer la protección, conservación y puesta en valor de la colección mediante su inventario y catalogación, el desarrollo de estrategias de conservación preventiva y gestión de riesgos, y la adecuación de su área de depósito, considerando los riesgos asociados al cambio climático.",
+      "integrantesRaw": "Juan Carlos Fabián Rodríguez Reyes\nDiana Castillo Cerf\nAndrés de Leo Martinez",
+      "numeroIntegrantes": 3,
+      "dimensiones": "Se usará una laptop y una mesa de apoyo\n* Integraremos un recorrido virtual con lentes RV (estos lentes los proporciona el centro patrimonio).",
+      "requerimientoTecnico": "Una pantalla y sumo dos paneles impresos para mostrar algunas interacción de RA.\nUn punto adicional de luz para cargar eventualmente los lentes que se usarán para le recorrido virtual."
+    },
+    {
+      "area": "Dirección de Investigación",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "Contrato N° PE501082689-2023-PROCIENCIA_AIRE: \"ContAmInación atmosféRica en cErros poblados\"",
+      "descripcion": "Estudiar la relación que existe entre patrones urbanísticos, vegetación, calidad de aire de nivel de peatón y percepción social en 4 cerros poblados en la ciudad de Lima (2) y de Cusco (2) mediante la realización de un estudio paramétrico computacional en el modelo EnviMET, en el cual se modificarán las características topológicas del patrón urbano a simular, altura de edificaciones, tipo de vegetación, tipo de implementación de vegetación y condiciones climáticas, y mediante estudios sociales en campo de la psicología ambiental sobre riesgo social-ambiental en las zonas de estudio y su relación con la vegetación como posible propuesta a la problemática de calidad de aire.",
+      "integrantesRaw": "Daniel Vicente Horna Muñoz\n\nEncargada de la presentación: Marian Montalvo Poblete\nmmontalvo@utec.edu.pe",
+      "numeroIntegrantes": 1,
+      "dimensiones": "Las medidas son: \n\n1. SPIDAR Vertical Profiler\n- Footprint aproximado: 1.09 m x 1.26 m x 1.43 m\n- Altura ajustable de instalación: de 0.91 m a 1.31 m\n\n2. Qaira\n- Longitud: entre 1.8 m y 2.5 m (telescópica/ajustable)\n\n3. Dron compacto\n- Plegado: aprox. 0.22 m x 0.10 m x 0.10-0.12 m\n- Desplegado: aprox. 0.35 m x 0.28-0.29 m x 0.11-0.14 m\n\nEn cuanto al espacio requerido, el SPIDAR es el equipo de mayor tamaño, por lo que solicitaría considerar una mesa de al menos 1.3 m x 1.5 m. La pértiga y el dron ocupan un espacio menor, además de contar con su propio trípode.",
+      "requerimientoTecnico": "Un punto de corriente eléctrica estándar por proyecto, total: 3"
+    },
+    {
+      "area": "Posgrado _Doctorado",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "FreeWheels, un sistema modular con inteligencia artificial que permite desplazarse sin usar las manos.",
+      "descripcion": null,
+      "integrantesRaw": "Carlos Felipe Felix Palomino\nJhedmar Jhonatan Callupe Luna",
+      "numeroIntegrantes": 2,
+      "dimensiones": null,
+      "requerimientoTecnico": "1 pantalla\n1 espacio para la silla"
+    },
+    {
+      "area": "Posgrado_ Engineering Management",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "Capital Cognitivo: Activación de Lecciones\nAprendidas mediante IA Generativa en\nProyectos de Ingeniería",
+      "descripcion": "Aura, consultora peruana de ingeniería con 75 años de trayectoria, es asesora técnica del Grupo Cemento América (Perú, Colombia, Canadá), rol que depende de su reputación técnica. Sin embargo, errores ya documentados se repiten en 8 de 13 proyectos por falta de acceso al conocimiento institucional, generando retrabajos que erosionan esa autoridad. Un diagnóstico basado en 335 lecciones aprendidas y encuestas al personal senior identificó que tres causas —todas relacionadas con la entrega, no la existencia, del conocimiento— concentran el 79.5% del problema. La solución propuesta es un asistente de IA generativa con arquitectura RAG, integrado a Microsoft 365, que entrega conocimiento institucional en el punto de decisión con citación obligatoria de su fuente; se validó un prototipo funcional con 334 lecciones reales. La evaluación económica arroja un VAN de US$ 1,571,775, TIR de 341% y recuperación en un año, con beneficio anual de US$ 637,920 en plena adopción, resultado que se mantiene positivo incluso sin el beneficio menos verificable. La solución es viable técnica y económicamente, y su principal riesgo es de adopción, no tecnológico.",
+      "integrantesRaw": "Cumpa Barreto, Alejandro\nChero Huamaní, Miguel\nEstela Mostajo, Jorge",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Posgrado_ CD&IA",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "GeoMinder",
+      "descripcion": "Sistema agéntico con filtrado dinámico de metadatos para la recupración de información técnica en corpus a gran escala en Ingeniería aplicada.",
+      "integrantesRaw": "Sebastian Lopez Medina, \nBrajan Esteban Nieto, \nMateoTapia Chasquibol",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Asociaciones Estudiantiles",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "Prótesis mecánica para amputación transradial basada en sistemas de 4 barras.",
+      "descripcion": "Desarrollo de una prótesis Bionica de bajo costo en base a impresión 3D y sistemas de movimiento de barras qué pueda emular los movimientos característicos de la mano y antebrazo para el tratamiento de pacientes con amputación transradial.",
+      "integrantesRaw": "Santiago Alonso González Castillo \nMarcelo Daniel Rodriguez Fernández\nJohan Grober Bravo Sanchez\nRodolfo Guillermo Yauri Condo\nRoger Adilson Pimentel Pedraza\nDominic Estiven Sisaya Sisaya\nGiovanni Luis Barrantes Lazo (dni 46160343)\nJuan Pablo Tello Cama (76164373)",
+      "numeroIntegrantes": 8,
+      "dimensiones": "400x200 mm, sin embargo para una mejor instalación usaremos un espacio de aprox 1.5 mts (dos mesas de utec)",
+      "requerimientoTecnico": "2 tomacorrientes"
+    },
+    {
+      "area": "Asociaciones Estudiantiles",
+      "categoria": "Innovación Académica e Investigación",
+      "nombre": "OHM Formula Racing",
+      "descripcion": "OHM Formula Racing es el equipo estudiantil de Fórmula SAE de UTEC que diseña, fabrica y compite con monoplazas de competencia bajo el reglamento internacional Formula SAE. El equipo articula cinco áreas técnicas —Dinámica Vehicular, Estructura, Potencia, Electrónica y Operaciones— con procesos validados mediante simulación CAD/CFD/FEA y asesoría académica especializada. Como evidencia de avance, en la temporada 2025 diseñamos, fabricamos y validamos nuestro primer prototipo funcional v1, y actualmente estamos enfocados en la construcción de nuestro nuevo vehículo v2 que representará a la UTEC en la Formula SAE Brasil 2027",
+      "integrantesRaw": "Diego Munayco Pacheco\nEmilio Pareja Flor\nRaid Portocarrero Choque\nDavid Caballero Cano\nMiguel Aronés Escobar\nJosé Andrés Casas Tarazona",
+      "numeroIntegrantes": 6,
+      "dimensiones": "Vamos a exhibir nuestro vehículo V1 (prototipo construido durante la temporada 2025), junto con la presentación del proceso de desarrollo del nuevo vehículo (fotos de simulación, diseño y construcción), además de banners, banderolas y merchandising (llaveros y stickers) para los asistentes\nDimensiones aproximadas del V1: 2.8 m de largo x 1.3 m de ancho x 1.1 m de alto (referencial)\nAdicional a eso, necesitaríamos espacio para una mesa y las banderolas (de ser posible posicionarlos)",
+      "requerimientoTecnico": "- 1 pantalla\n- 1 mesa"
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Optimización de sistema hídrico de las áreas verdes del piso 6 de la UTEC",
+      "descripcion": null,
+      "integrantesRaw": "Sandoval Barreto, Angel Sebastián\nHuaranccay Arias, Henry Jesua\nVillar Lopez, Carlos Sebastian",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "EcoVoluntarios del Carmen: Programa de Voluntariado Ambiental Juvenil Gamificado",
+      "descripcion": "Es una iniciativa de impacto social que promueve la economía circular y la formación de líderes comunitarios, mediante un modelo de voluntariado ambiental juvenil gamificado en El Carmen (Chincha). La propuesta integra retos grupales de recolección de plástico PET, talleres de reutilización práctica y una plataforma web de seguimiento, transformando la gestión de residuos en una experiencia interactiva, colaborativa y sostenible.",
+      "integrantesRaw": "Alcántara Tineo, Lia Kim (202310008) \nCastro Pinto, Camila Cielo (202410004)\nFranco Lujan, Maryi Tais (202410572)\nToledo Poves, Cielo Angelina (202310041)",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "ReFruta",
+      "descripcion": null,
+      "integrantesRaw": "Akemi Aragaki Acasiete \nCamila Rodriguez Valverde \nJesus Muñoz Horna \nJosué Luna Rocha",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "HumiSense",
+      "descripcion": "Prototipo para el control continuo y confiable\nde humedad y temperatura. Pensado en la recuperación  de suelos y desarrollo agricola",
+      "integrantesRaw": "Badi Rodriguez Ramirez\nJoaquin Orozco Ayala\nFelipe Silva Winder\nDavid Cáceres Muñoz\nSebastian Avalos Andres\nAndy Quispe Flores",
+      "numeroIntegrantes": 6,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Chat mi bot",
+      "descripcion": null,
+      "integrantesRaw": "Rosari Huamán\nAntonio Cotera\nBeck Cenizario \nArmando Anahua",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "AlimentaConecta: Sistema de redistribución eficiente de excedentes alimentarios",
+      "descripcion": "Es una plataforma digital que conecta a empresas\ndonantes con comedores populares mediante herramientas de registro, monitoreo y\nseguimiento de donaciones.",
+      "integrantesRaw": "Espinoza Huamani, Harold; \nEspinoza Huamani, Bryan; \nChinchay Cisneros, Daniel Alonso; \nRazo Perez, Gabriel",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Diseño de un Dispositivo Inteligente de Detección de Accidentes para Usuarios de Vehículos de Dos Ruedas",
+      "descripcion": null,
+      "integrantesRaw": "Lucia del Carmen Albornoz Cordova\nJuan Manuel Fernandez Salazar\nRafael Pedro Pinna Espejo\nAlejandro Jesus Ormeño Marreros",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Falta de accesibilidad e inclusión para personas con discapacidad visual total y parcial en el Museo de Arte Contemporáneo (MAC)",
+      "descripcion": "Proyecto orientado a mejorar la accesibilidad e inclusión de personas con discapacidad visual en el Museo de Arte Contemporáneo de Lima (MAC). La propuesta integra una aplicación móvil con audiodescripciones y un sistema de guiado mediante piso podotáctil y sensores del celular, con el objetivo de facilitar un recorrido más autónomo, comprensible e inclusivo dentro del museo.",
+      "integrantesRaw": "Salcedo Jara Isabel\nFlores Cordova Angelo\nContreras Sosa Hector\nRamos Cadenillas Bruno\nLandeo Pacifico Joaquin",
+      "numeroIntegrantes": 5,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Sistema Digital para la Gestión de Pedidos y Ventas",
+      "descripcion": "Muchos pequeños negocios, como bodegas y microempresas, todavía registran pedidos, ventas y pagos de forma manual, en cuadernos, WhatsApp o hojas de cálculo, generando pérdida de tiempo, errores y poca visibilidad del negocio. El proyecto digitaliza este proceso en una sola plataforma, permitiendo registrar y revisar pedidos, controlar pagos e inventario y generar información útil para tomar mejores decisiones y crecer de forma ordenada.",
+      "integrantesRaw": "Rejas Albujar, Alejandro David (202310255) \nLoo Leon, Tommy Bryan (202510241) \nSarmiento Villavicencio, Alejandro Favian (202410105) \nSupo Mamani, Imanol Felix (202110476) \nPaca Sotero, Jose Francisco (202310272)",
+      "numeroIntegrantes": 5,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "ReProd Labs",
+      "descripcion": "Una galleta alta en fibra y proteína vegetal,\nsustituyendo parte de la harina de\ntrigo por harina de bagazo de cerveza. \nPensada para llegar a colegios, kioscos y\ncanales de distribución masiva en el Perú",
+      "integrantesRaw": "Henry Quispe\nBruno Garcia\nMaria Tamayo\nChars Farro\nGimena Alvarado\nDiego Ballena",
+      "numeroIntegrantes": 6,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Chaleco Prototipo para el apoyo en crisis de pacientes menores de edad neuro divergentes",
+      "descripcion": "Chaleco de presión sensorial de bajo costo que \nayuda al control  de las crisis dadas en estudiantes neurodivergentes durante su \nproceso educativo,",
+      "integrantesRaw": "Gonzalo Gabriel Sánchez Valdivia\nLuis Alonso Castro Revoredo \nGerard Deker Iruri Espinoza \nDiego Andres Montalvo Anaya",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "RevitApp: Revitalización y Sostenibilidad Industrial",
+      "descripcion": "RevitApp es una aplicación predictiva para optimizar mantenimiento industrial sostenible que combina recubrimiento anticorrosivo ecológico y sensores IoT.",
+      "integrantesRaw": "López Chipana, María Alexandra. Ingeniería Química - 202210545.\nAllcca Cubas, Christopher. Administrador y Negocios Digitales - 202510756.\nFernandez Rivera, Cesar Gianpiero. Ingeniería Industrial - 202410606.\nMujica Canchari, Sergio Luis. Ciencias de Datos & IA - 201710039.\nCentti Torres, Edmundo Andre; Ciencias de la computación - 202320196.",
+      "numeroIntegrantes": 5,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "TANQUEA",
+      "descripcion": "Plataforma en línea para personas naturales en Lima Metropolitana permitiéndoles la identificación de grifos de combustible brindando como beneficio el ahorro y optimización de tiempo.",
+      "integrantesRaw": "Violeta de Fatima Figueroa Castañeda <violeta.figueroa@utec.edu.pe>,\nJosé Miguel de Maria Pastor Revilla <jose.pastor.r@utec.edu.pe>,\nNicolas Babarczy Ortiz Ugaz <nicolas.babarczy@utec.edu.pe>,\nCarlos Brayan Quispe Marca <carlos.quispe.m@utec.edu.pe>",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Quimflow: Sistema AGV Autonomo para traslado de químicos",
+      "descripcion": "QuimFlow es un AGV autónomo que automatiza el traslado seguro de químicos corrosivos en la planta de Nettalco S.A., eliminando la exposición del operario y validado directamente con la empresa.",
+      "integrantesRaw": "Jorge Leandro Vasquez (202310019), \nLuis Rivadeneira Fernandez (202310074) , \nKamilo Neyra Chipana (202310250)",
+      "numeroIntegrantes": 3,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Harina funcional de cascarilla de cacao para el desarrollo de un brownie de alto valor nutricional en la Cooperativa CECAT, Tocache",
+      "descripcion": null,
+      "integrantesRaw": "Erika Fabiana Galarreta Dávila\nValentina Raquel Soukharev Tovar\nKatherine Marie Pizarro Mego\nJuan Marcelo Ferreyra Gonzales",
+      "numeroIntegrantes": 4,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    },
+    {
+      "area": "Dirección de Proyectos e Infraestructura Académica",
+      "categoria": "Proyectos Interdisciplinarios 3",
+      "nombre": "Réplicas 3D de fardos funerarios – Tume / Silvestre",
+      "descripcion": null,
+      "integrantesRaw": "Claudia Valeria Tume Fiestas\nAndre Nicolas Silvestre Tejeda",
+      "numeroIntegrantes": 2,
+      "dimensiones": null,
+      "requerimientoTecnico": null
+    }
+  ]
+}

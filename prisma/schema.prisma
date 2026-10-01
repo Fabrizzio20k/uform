@@ -1,0 +1,207 @@
+generator client {
+  provider = "prisma-client" // rust-free, ESM (Prisma ORM 7)
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// JURADOS
+// ---------------------------------------------------------------------------
+
+model Jurado {
+  id        String   @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  email     String   @unique
+  fullName  String
+  phone     String?
+  position  String?
+  faculty   String?
+
+  // Autenticación. passwordHash queda null hasta el primer login (flujo de
+  // "establecer contraseña"). SHA-256 -> 64 caracteres hex.
+  passwordHash String? @db.VarChar(64)
+  passwordSetAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  evaluaciones Evaluacion[]
+
+  @@map("jurados")
+}
+
+// ---------------------------------------------------------------------------
+// CATEGORIAS Y RUBRICAS
+// ---------------------------------------------------------------------------
+
+// Tipo de rúbrica. Determina qué formulario de evaluación aplica.
+enum TipoRubrica {
+  STAND_POSTER
+  ELEVATOR_PITCH
+}
+
+model Rubrica {
+  id     String      @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  nombre String      @unique
+  tipo   TipoRubrica @unique
+
+  criterios  Criterio[]
+  categorias Categoria[]
+
+  @@map("rubricas")
+}
+
+model Categoria {
+  id     String @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  nombre String @unique
+
+  rubricaId String  @db.Uuid
+  rubrica   Rubrica @relation(fields: [rubricaId], references: [id])
+
+  proyectos Proyecto[]
+  pesos     PesoCriterioCategoria[]
+
+  @@index([rubricaId])
+  @@map("categorias")
+}
+
+// Criterio de evaluación dentro de una rúbrica (ej. "Contenido técnico").
+// La escala de puntaje es fija 1-4 para todos los criterios (definido en
+// PENDIENTES.md / rúbricas originales).
+model Criterio {
+  id          String  @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  nombre      String
+  descripcion String?
+  orden       Int     @default(0)
+
+  rubricaId String  @db.Uuid
+  rubrica   Rubrica @relation(fields: [rubricaId], references: [id])
+
+  pesos           PesoCriterioCategoria[]
+  puntajeCriterio PuntajeCriterio[]
+
+  @@unique([rubricaId, nombre])
+  @@index([rubricaId])
+  @@map("criterios")
+}
+
+// Peso (0-1) de un criterio para una categoría específica. En la rúbrica
+// "Stand + Póster" el peso de cada criterio varía según la categoría del
+// proyecto; en "Elevator Pitch" el peso es el mismo para su única categoría.
+// Modelarlo así evita duplicar criterios y permite ampliar categorías sin
+// tocar el esquema.
+model PesoCriterioCategoria {
+  id String @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+
+  categoriaId String    @db.Uuid
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+
+  criterioId String   @db.Uuid
+  criterio   Criterio @relation(fields: [criterioId], references: [id])
+
+  // Peso relativo del criterio (ej. 0.20 = 20%).
+  peso Decimal @db.Decimal(4, 3)
+
+  @@unique([categoriaId, criterioId])
+  @@index([categoriaId])
+  @@index([criterioId])
+  @@map("pesos_criterio_categoria")
+}
+
+// ---------------------------------------------------------------------------
+// PROYECTOS
+// ---------------------------------------------------------------------------
+
+model Proyecto {
+  id     String @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+  nombre String
+
+  area                  String?
+  descripcion           String?
+  integrantesRaw        String? // texto tal cual venía en el Excel (uno por línea)
+  numeroIntegrantes      Int?
+  dimensiones           String?
+  requerimientoTecnico  String?
+
+  categoriaId String    @db.Uuid
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+
+  evaluaciones Evaluacion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([categoriaId])
+  @@map("proyectos")
+}
+
+// ---------------------------------------------------------------------------
+// EVALUACIONES
+// ---------------------------------------------------------------------------
+
+// Una evaluación = un jurado evaluando un proyecto una única vez.
+// scoreTotal queda denormalizado (suma de puntaje*peso de cada criterio) para
+// que el leaderboard no tenga que recalcular sobre PuntajeCriterio en cada
+// consulta; se recalcula cada vez que se guarda/actualiza la evaluación.
+model Evaluacion {
+  id String @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+
+  juradoId String @db.Uuid
+  jurado   Jurado @relation(fields: [juradoId], references: [id])
+
+  proyectoId String   @db.Uuid
+  proyecto   Proyecto @relation(fields: [proyectoId], references: [id])
+
+  scoreTotal Decimal @default(0) @db.Decimal(6, 3)
+
+  puntajes PuntajeCriterio[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Un jurado evalúa un proyecto una sola vez.
+  @@unique([juradoId, proyectoId])
+  // Cubre el cálculo del leaderboard: SUM(scoreTotal) GROUP BY proyectoId.
+  @@index([proyectoId, scoreTotal])
+  @@index([juradoId])
+  @@map("evaluaciones")
+}
+
+// Puntaje (1-4) que un jurado asignó a un criterio específico dentro de una
+// evaluación.
+model PuntajeCriterio {
+  id String @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+
+  evaluacionId String     @db.Uuid
+  evaluacion   Evaluacion @relation(fields: [evaluacionId], references: [id], onDelete: Cascade)
+
+  criterioId String   @db.Uuid
+  criterio   Criterio @relation(fields: [criterioId], references: [id])
+
+  puntaje Int // 1 a 4
+
+  @@unique([evaluacionId, criterioId])
+  @@index([criterioId])
+  @@map("puntajes_criterio")
+}
+
+// ---------------------------------------------------------------------------
+// SEGURIDAD / RATE LIMITING
+// ---------------------------------------------------------------------------
+
+// Registro de intentos de login por IP + correo, usado para throttling simple
+// contra fuerza bruta / DDoS a nivel aplicación (sin infraestructura extra).
+model LoginAttempt {
+  id String @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
+
+  ip        String
+  email     String?
+  success   Boolean
+  createdAt DateTime @default(now())
+
+  // Cubre la consulta de rate-limit: contar intentos recientes por IP.
+  @@index([ip, createdAt])
+  @@map("login_attempts")
+}
