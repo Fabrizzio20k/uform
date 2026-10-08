@@ -30,6 +30,7 @@ model Jurado {
   updatedAt DateTime @updatedAt
 
   evaluaciones Evaluacion[]
+  asignaciones AsignacionProyecto[]
 
   @@map("jurados")
 }
@@ -136,6 +137,7 @@ model Proyecto {
   categoria   Categoria @relation(fields: [categoriaId], references: [id])
 
   evaluaciones Evaluacion[]
+  asignaciones AsignacionProyecto[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -174,6 +176,20 @@ model Evaluacion {
   @@index([proyectoId, scoreTotal])
   @@index([juradoId])
   @@map("evaluaciones")
+}
+
+model AsignacionProyecto {
+  juradoId String @db.Uuid
+  jurado Jurado @relation(fields: [juradoId], references: [id], onDelete: Cascade)
+
+  proyectoId String @db.Uuid
+  proyecto Proyecto @relation(fields: [proyectoId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@id([juradoId, proyectoId])
+  @@index([proyectoId])
+  @@map("asignaciones_proyecto")
 }
 
 // Copia inmutable de una evaluación anulada. La evaluación original se elimina

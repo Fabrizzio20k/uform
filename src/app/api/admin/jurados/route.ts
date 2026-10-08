@@ -12,7 +12,10 @@ export async function POST(request: NextRequest) {
   const data = body as Record<string, unknown>;
   const email = typeof data?.email === "string" ? data.email.trim().toLowerCase() : "";
   const fullName = typeof data?.fullName === "string" ? data.fullName.trim() : "";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254 || !fullName || fullName.length > 200) {
+  const assignedProjectIds = Array.isArray(data.assignedProjectIds) && data.assignedProjectIds.every((id) => typeof id === "string")
+    ? [...new Set(data.assignedProjectIds)]
+    : null;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254 || !fullName || fullName.length > 200 || !assignedProjectIds) {
     return NextResponse.json({ error: "Ingresa un nombre y correo válidos." }, { status: 400 });
   }
   const optional = (field: string) => {
@@ -28,8 +31,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Los datos adicionales no son válidos." }, { status: 400 });
   }
   try {
+    const assignedProjects = await prisma.proyecto.count({ where: { id: { in: assignedProjectIds } } });
+    if (assignedProjects !== assignedProjectIds.length) {
+      return NextResponse.json({ error: "La selección de proyectos no es válida." }, { status: 400 });
+    }
     const jurado = await prisma.jurado.create({
-      data: { email, fullName, phone, position, faculty, role: "JURADO" },
+      data: { email, fullName, phone, position, faculty, role: "JURADO", asignaciones: { create: assignedProjectIds.map((proyectoId) => ({ proyectoId })) } },
       select: { id: true, email: true },
     });
     return NextResponse.json({ jurado }, { status: 201 });

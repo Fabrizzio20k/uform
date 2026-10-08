@@ -16,6 +16,18 @@ export async function GET(
 
   const { id } = await ctx.params;
 
+  const jurado = await prisma.jurado.findUnique({
+    where: { id: session.sub },
+    select: { role: true },
+  });
+  const esAdmin = jurado?.role === "ADMIN";
+  if (!esAdmin) {
+    const asignacion = await prisma.asignacionProyecto.findUnique({
+      where: { juradoId_proyectoId: { juradoId: session.sub, proyectoId: id } },
+    });
+    if (!asignacion) return NextResponse.json({ error: "No tienes este proyecto asignado." }, { status: 403 });
+  }
+
   const proyecto = await prisma.proyecto.findUnique({
     where: { id },
     include: {

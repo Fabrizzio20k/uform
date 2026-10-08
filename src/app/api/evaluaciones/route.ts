@@ -69,6 +69,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Proyecto no encontrado." }, { status: 404 });
   }
 
+  if (!adminEvaluando) {
+    const asignacion = await prisma.asignacionProyecto.findUnique({
+      where: { juradoId_proyectoId: { juradoId: session.sub, proyectoId } },
+    });
+    if (!asignacion) return NextResponse.json({ error: "No tienes este proyecto asignado." }, { status: 403 });
+  }
+
   // Una evaluación es definitiva: si el jurado ya evaluó este proyecto, no
   // se permite modificarla (se hace cumplir en el servidor, no solo en la UI).
   const evaluacionExistente = await prisma.evaluacion.findUnique({

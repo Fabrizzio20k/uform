@@ -11,7 +11,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "No autenticado." }, { status: 401 });
   }
 
+  const jurado = await prisma.jurado.findUnique({
+    where: { id: session.sub },
+    select: { role: true },
+  });
+  const esAdmin = jurado?.role === "ADMIN";
   const proyectos = await prisma.proyecto.findMany({
+    where: esAdmin ? undefined : { asignaciones: { some: { juradoId: session.sub } } },
     include: { categoria: true },
     orderBy: [{ categoria: { nombre: "asc" } }, { nombre: "asc" }],
   });

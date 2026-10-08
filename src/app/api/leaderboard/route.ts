@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/admin-auth";
 
 // Leaderboard público (cualquiera puede verlo, no requiere sesión).
 // El puntaje de cada proyecto es la suma de scoreTotal de todas sus
@@ -8,7 +9,9 @@ import { prisma } from "@/lib/prisma";
 // La agregación usa groupBy sobre evaluaciones.proyectoId, que está cubierto
 // por el índice compuesto (proyectoId, scoreTotal) para que el cálculo sea
 // eficiente incluso con muchas evaluaciones.
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const { error } = await requireAdmin(request);
+  if (error) return error;
   const agregados = await prisma.evaluacion.groupBy({
     by: ["proyectoId"],
     _sum: { scoreTotal: true },

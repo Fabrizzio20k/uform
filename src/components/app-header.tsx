@@ -29,6 +29,7 @@ export function AppHeader({
   const [switching, setSwitching] = useState(false);
   const [switchError, setSwitchError] = useState("");
   const isAdminView = role === "ADMIN" && adminView === "admin";
+  const navItems = NAV_ITEMS.filter((item) => item.href !== "/leaderboard" || role === "ADMIN").filter((item) => !isAdminView || item.href !== "/proyectos");
 
   async function handleLogout() {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -67,10 +68,7 @@ export function AppHeader({
       </div>
 
       <nav className="order-3 flex w-full max-w-full items-center justify-center gap-1 overflow-x-auto rounded-full border bg-muted/40 p-1 sm:order-2 sm:w-auto">
-        {(isAdminView
-          ? NAV_ITEMS.filter((item) => item.href !== "/proyectos")
-          : NAV_ITEMS
-        ).map((item) => {
+        {navItems.map((item) => {
           const active = pathname === item.href || pathname.startsWith(item.href + "/");
           return (
             <Link

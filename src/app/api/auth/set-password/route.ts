@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
 
   // Si ya estableció contraseña entre que se emitió el token y ahora, no se
   // permite sobrescribirla por esta vía.
-  if (jurado.passwordHash) {
+  if (jurado.passwordHash && payload.kind !== "password-reset") {
     return NextResponse.json(
       { error: "Ya se estableció una contraseña para este usuario." },
       { status: 409 }

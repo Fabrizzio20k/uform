@@ -20,7 +20,7 @@ type SessionPayload = {
 type SetPasswordPayload = {
   sub: string; // jurado id
   email: string;
-  kind: "set-password";
+  kind: "set-password" | "password-reset";
 };
 
 export async function createSessionToken(juradoId: string, email: string) {
@@ -31,11 +31,11 @@ export async function createSessionToken(juradoId: string, email: string) {
     .sign(secret);
 }
 
-export async function createSetPasswordToken(juradoId: string, email: string) {
+export async function createSetPasswordToken(juradoId: string, email: string, kind: SetPasswordPayload["kind"] = "set-password") {
   return new SignJWT({
     sub: juradoId,
     email,
-    kind: "set-password",
+    kind,
   } satisfies SetPasswordPayload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
@@ -58,7 +58,7 @@ export async function verifySetPasswordToken(
 ): Promise<SetPasswordPayload | null> {
   try {
     const { payload } = await jwtVerify(token, secret);
-    if (payload.kind !== "set-password") return null;
+    if (payload.kind !== "set-password" && payload.kind !== "password-reset") return null;
     return payload as unknown as SetPasswordPayload;
   } catch {
     return null;

@@ -105,7 +105,14 @@ export default function ProyectosPage() {
           <p className="text-sm text-muted-foreground">Cargando...</p>
         )}
 
-        {proyectos && (
+        {proyectos && proyectos.length === 0 && (
+          <div className="rounded-lg border border-dashed p-8 text-center">
+            <h2 className="font-medium">Aún no tienes proyectos asignados</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Cuando la organización te asigne proyectos, aparecerán aquí para que puedas evaluarlos.</p>
+          </div>
+        )}
+
+        {proyectos && proyectos.length > 0 && (
           <>
             {/* Buscador + ordenamiento + estado */}
             <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center">

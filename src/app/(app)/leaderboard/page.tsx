@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { AppFooter } from "@/components/app-footer";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -27,6 +28,7 @@ type LeaderboardData = {
 };
 
 export default function LeaderboardPage() {
+  const router = useRouter();
   const [data, setData] = useState<LeaderboardData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [categoriaActiva, setCategoriaActiva] = useState<string | null>(null);
@@ -35,6 +37,14 @@ export default function LeaderboardPage() {
     async function load() {
       const res = await fetch("/api/leaderboard");
       if (!res.ok) {
+        if (res.status === 401) {
+          router.push("/login");
+          return;
+        }
+        if (res.status === 403) {
+          router.push("/proyectos");
+          return;
+        }
         setError("No se pudo cargar el leaderboard.");
         return;
       }
@@ -42,7 +52,7 @@ export default function LeaderboardPage() {
       setData(result);
     }
     load();
-  }, []);
+  }, [router]);
 
   const filas: FilaRanking[] | undefined = data
     ? categoriaActiva

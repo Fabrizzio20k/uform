@@ -17,7 +17,7 @@ export default async function AdminPage() {
   const [jurados, proyectos, categorias, evaluaciones, anuladas] = await Promise.all([
     prisma.jurado.findMany({
       where: { role: "JURADO" },
-      select: { id: true, fullName: true, email: true, phone: true, position: true, faculty: true, active: true, passwordSetAt: true, _count: { select: { evaluaciones: true } } },
+      select: { id: true, fullName: true, email: true, phone: true, position: true, faculty: true, active: true, passwordSetAt: true, asignaciones: { select: { proyectoId: true } }, _count: { select: { evaluaciones: true } } },
       orderBy: { fullName: "asc" },
     }),
     prisma.proyecto.findMany({
@@ -35,7 +35,7 @@ export default async function AdminPage() {
   return (
     <>
       <AdminDashboard
-        jurados={jurados.map((j) => ({ id: j.id, fullName: j.fullName, email: j.email, phone: j.phone, position: j.position, faculty: j.faculty, active: j.active, passwordSetAt: j.passwordSetAt?.toISOString() ?? null, evaluaciones: j._count.evaluaciones }))}
+        jurados={jurados.map((j) => ({ id: j.id, fullName: j.fullName, email: j.email, phone: j.phone, position: j.position, faculty: j.faculty, active: j.active, passwordSetAt: j.passwordSetAt?.toISOString() ?? null, assignedProjectIds: j.asignaciones.map((asignacion) => asignacion.proyectoId), evaluaciones: j._count.evaluaciones }))}
         proyectos={proyectos.map((p) => ({ id: p.id, nombre: p.nombre, area: p.area, descripcion: p.descripcion, integrantesRaw: p.integrantesRaw, numeroIntegrantes: p.numeroIntegrantes, dimensiones: p.dimensiones, requerimientoTecnico: p.requerimientoTecnico, categoriaId: p.categoriaId, categoria: p.categoria.nombre, evaluaciones: p._count.evaluaciones }))}
         categorias={categorias}
         evaluaciones={evaluaciones.map((ev) => ({ id: ev.id, scoreTotal: Number(ev.scoreTotal), createdAt: ev.createdAt.toISOString(), jurado: ev.jurado, proyecto: { nombre: ev.proyecto.nombre, categoria: ev.proyecto.categoria.nombre }, puntajes: ev.puntajes }))}

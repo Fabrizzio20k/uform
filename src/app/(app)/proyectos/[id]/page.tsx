@@ -101,7 +101,9 @@ export default function ProyectoDetallePage() {
     if (!data) return;
     const faltantes = data.rubrica.criterios.filter((c) => !(c.id in puntajes));
     if (faltantes.length > 0) {
-      setError("Debes calificar todos los criterios antes de guardar.");
+      const message = "Debes calificar todos los criterios antes de guardar.";
+      setError(message);
+      toast.error(message);
       return;
     }
     setError(null);
