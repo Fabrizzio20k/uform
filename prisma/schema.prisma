@@ -53,7 +53,7 @@ enum TipoRubrica {
 model Rubrica {
   id     String      @id @default(dbgenerated("uuid_generate_v7()")) @db.Uuid
   nombre String      @unique
-  tipo   TipoRubrica @unique
+  tipo   TipoRubrica
 
   criterios  Criterio[]
   categorias Categoria[]

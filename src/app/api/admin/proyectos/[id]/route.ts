@@ -48,3 +48,16 @@ export async function PATCH(request: NextRequest, ctx: RouteContext<"/api/admin/
   });
   return NextResponse.json({ ok: true });
 }
+
+export async function DELETE(request: NextRequest, ctx: RouteContext<"/api/admin/proyectos/[id]">) {
+  const { error } = await requireAdmin(request);
+  if (error) return error;
+  const { id } = await ctx.params;
+  const proyecto = await prisma.proyecto.findUnique({ where: { id }, select: { _count: { select: { evaluaciones: true } } } });
+  if (!proyecto) return NextResponse.json({ error: "Proyecto no encontrado." }, { status: 404 });
+  if (proyecto._count.evaluaciones > 0) {
+    return NextResponse.json({ error: "No se puede eliminar un proyecto con evaluaciones registradas. Anúlalas primero para conservar el historial." }, { status: 409 });
+  }
+  await prisma.proyecto.delete({ where: { id } });
+  return NextResponse.json({ ok: true });
+}

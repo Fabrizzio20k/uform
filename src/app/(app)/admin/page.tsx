@@ -14,7 +14,7 @@ export default async function AdminPage() {
   if (admin.role !== "ADMIN") redirect("/proyectos");
   if (adminViewFromCookie(cookieStore.get(ADMIN_VIEW_COOKIE_NAME)?.value) === "jurado") redirect("/proyectos");
 
-  const [jurados, proyectos, categorias, evaluaciones, anuladas] = await Promise.all([
+  const [jurados, proyectos, categorias, rubricas, evaluaciones, anuladas] = await Promise.all([
     prisma.jurado.findMany({
       where: { role: "JURADO" },
       select: { id: true, fullName: true, email: true, phone: true, position: true, faculty: true, active: true, passwordSetAt: true, asignaciones: { select: { proyectoId: true } }, _count: { select: { evaluaciones: true } } },
@@ -25,6 +25,14 @@ export default async function AdminPage() {
       orderBy: { nombre: "asc" },
     }),
     prisma.categoria.findMany({ select: { id: true, nombre: true }, orderBy: { nombre: "asc" } }),
+    prisma.rubrica.findMany({
+      select: {
+        id: true, nombre: true, tipo: true,
+        categorias: { select: { id: true, nombre: true, _count: { select: { proyectos: true } } }, orderBy: { nombre: "asc" } },
+        criterios: { select: { id: true, nombre: true, descripcion: true, orden: true, pesos: { select: { categoriaId: true, peso: true } } }, orderBy: { orden: "asc" } },
+      },
+      orderBy: { nombre: "asc" },
+    }),
     prisma.evaluacion.findMany({
       select: { id: true, scoreTotal: true, createdAt: true, jurado: { select: { fullName: true, email: true } }, proyecto: { select: { nombre: true, categoria: { select: { nombre: true } } } }, puntajes: { select: { puntaje: true, criterio: { select: { nombre: true } } }, orderBy: { criterio: { orden: "asc" } } } },
       orderBy: { createdAt: "desc" },
@@ -38,6 +46,7 @@ export default async function AdminPage() {
         jurados={jurados.map((j) => ({ id: j.id, fullName: j.fullName, email: j.email, phone: j.phone, position: j.position, faculty: j.faculty, active: j.active, passwordSetAt: j.passwordSetAt?.toISOString() ?? null, assignedProjectIds: j.asignaciones.map((asignacion) => asignacion.proyectoId), evaluaciones: j._count.evaluaciones }))}
         proyectos={proyectos.map((p) => ({ id: p.id, nombre: p.nombre, area: p.area, descripcion: p.descripcion, integrantesRaw: p.integrantesRaw, numeroIntegrantes: p.numeroIntegrantes, dimensiones: p.dimensiones, requerimientoTecnico: p.requerimientoTecnico, categoriaId: p.categoriaId, categoria: p.categoria.nombre, evaluaciones: p._count.evaluaciones }))}
         categorias={categorias}
+        rubricas={rubricas.map((rubrica) => ({ ...rubrica, categorias: rubrica.categorias.map((categoria) => ({ id: categoria.id, nombre: categoria.nombre, proyectos: categoria._count.proyectos })), criterios: rubrica.criterios.map((criterio) => ({ ...criterio, pesos: criterio.pesos.map((peso) => ({ categoriaId: peso.categoriaId, peso: Number(peso.peso) })) })) }))}
         evaluaciones={evaluaciones.map((ev) => ({ id: ev.id, scoreTotal: Number(ev.scoreTotal), createdAt: ev.createdAt.toISOString(), jurado: ev.jurado, proyecto: { nombre: ev.proyecto.nombre, categoria: ev.proyecto.categoria.nombre }, puntajes: ev.puntajes }))}
         anuladas={anuladas.map((item) => ({ ...item, anuladaAt: item.anuladaAt.toISOString() }))}
       />
