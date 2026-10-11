@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import type { TipoRubrica } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin-auth";
 
@@ -9,8 +10,8 @@ export function rubricDraft(body: unknown) {
   if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("Solicitud inválida.");
   const data = body as Record<string, unknown>;
   const nombre = typeof data?.nombre === "string" ? data.nombre.trim() : "";
-  const tipo = data?.tipo;
-  if (!nombre || nombre.length > 120 || (tipo !== "STAND_POSTER" && tipo !== "ELEVATOR_PITCH")) throw new Error("Nombre o tipo de rúbrica inválido.");
+  const tipo: TipoRubrica | null = data?.tipo === "STAND_POSTER" || data?.tipo === "ELEVATOR_PITCH" ? data.tipo : null;
+  if (!nombre || nombre.length > 120 || !tipo) throw new Error("Nombre o tipo de rúbrica inválido.");
   if (!Array.isArray(data.categorias) || data.categorias.length === 0) throw new Error("Agrega al menos una categoría.");
   if (!Array.isArray(data.criterios) || data.criterios.length === 0) throw new Error("Agrega al menos un criterio.");
   const categorias = data.categorias.map((item, index) => {

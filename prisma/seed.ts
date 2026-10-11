@@ -45,8 +45,8 @@ async function main() {
   console.log("Seed: rúbricas, criterios y categorías...");
   for (const rubricaData of seedData.rubricas) {
     const rubrica = await prisma.rubrica.upsert({
-      where: { tipo: rubricaData.tipo as TipoRubrica },
-      update: { nombre: rubricaData.nombre },
+      where: { nombre: rubricaData.nombre },
+      update: { tipo: rubricaData.tipo as TipoRubrica },
       create: { nombre: rubricaData.nombre, tipo: rubricaData.tipo as TipoRubrica },
     });
 
