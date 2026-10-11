@@ -98,6 +98,7 @@ export default function LoginPage() {
           alt="UTEC"
           fill
           priority
+          sizes="50vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

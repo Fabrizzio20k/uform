@@ -47,7 +47,7 @@ export default function SetPasswordPage() {
     <div className="grid min-h-screen lg:grid-cols-2">
       {/* Panel izquierdo con imagen (oculto en mobile) */}
       <div className="relative hidden lg:block">
-        <Image src="/utec.webp" alt="UTEC" fill priority className="object-cover" />
+        <Image src="/utec.webp" alt="UTEC" fill priority sizes="50vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
         <div className="absolute bottom-0 left-0 p-10 text-white">
           <p className="text-sm font-medium tracking-wide text-white/80 uppercase">
