@@ -37,12 +37,13 @@ type LeaderboardData = {
 };
 
 type ModoPuntaje = "acumulado" | "promedio";
+type OrdenPuntaje = "desc" | "asc";
 
-function ordenarFilas(filas: FilaRanking[], modoPuntaje: ModoPuntaje) {
+function ordenarFilas(filas: FilaRanking[], modoPuntaje: ModoPuntaje, ordenPuntaje: OrdenPuntaje) {
   return [...filas].sort((a, b) => {
     const puntajeA = modoPuntaje === "acumulado" ? a.puntajeTotal : a.puntajeTotal / a.numeroEvaluaciones;
     const puntajeB = modoPuntaje === "acumulado" ? b.puntajeTotal : b.puntajeTotal / b.numeroEvaluaciones;
-    return puntajeB - puntajeA;
+    return ordenPuntaje === "desc" ? puntajeB - puntajeA : puntajeA - puntajeB;
   });
 }
 
@@ -52,6 +53,7 @@ export default function LeaderboardPage() {
   const [error, setError] = useState<string | null>(null);
   const [categoriaActiva, setCategoriaActiva] = useState<string | null>(null);
   const [modoPuntaje, setModoPuntaje] = useState<ModoPuntaje>("acumulado");
+  const [ordenPuntaje, setOrdenPuntaje] = useState<OrdenPuntaje>("desc");
   const [infoAbierta, setInfoAbierta] = useState(false);
 
   useEffect(() => {
@@ -80,7 +82,7 @@ export default function LeaderboardPage() {
       ? data.rankingPorCategoria.find((c) => c.categoria === categoriaActiva)?.proyectos
       : data.rankingGlobal
     : undefined;
-  const filas = filasSinOrdenar ? ordenarFilas(filasSinOrdenar, modoPuntaje) : undefined;
+  const filas = filasSinOrdenar ? ordenarFilas(filasSinOrdenar, modoPuntaje, ordenPuntaje) : undefined;
   const usandoPromedio = modoPuntaje === "promedio";
 
   return (
@@ -132,32 +134,57 @@ export default function LeaderboardPage() {
 
         {data && (
           <>
-            <div className="mb-4 flex flex-wrap gap-1.5">
-              <button
-                onClick={() => setCategoriaActiva(null)}
-                className={cn(
-                  "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-                  categoriaActiva === null
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border text-muted-foreground hover:text-foreground"
-                )}
-              >
-                Global
-              </button>
-              {data.rankingPorCategoria.map((c) => (
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap gap-1.5">
                 <button
-                  key={c.categoria}
-                  onClick={() => setCategoriaActiva(c.categoria)}
+                  onClick={() => setCategoriaActiva(null)}
                   className={cn(
                     "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-                    categoriaActiva === c.categoria
+                    categoriaActiva === null
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-border text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {c.categoria}
+                  Global
                 </button>
-              ))}
+                {data.rankingPorCategoria.map((c) => (
+                  <button
+                    key={c.categoria}
+                    onClick={() => setCategoriaActiva(c.categoria)}
+                    className={cn(
+                      "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                      categoriaActiva === c.categoria
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {c.categoria}
+                  </button>
+                ))}
+              </div>
+              <div className="flex items-center rounded-lg border bg-muted/30 p-0.5 text-xs font-medium">
+                <span className="px-2 text-muted-foreground">Orden</span>
+                <button
+                  type="button"
+                  onClick={() => setOrdenPuntaje("desc")}
+                  className={cn(
+                    "rounded-md px-2 py-1.5 transition-colors",
+                    ordenPuntaje === "desc" ? "bg-background text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Mayor a menor
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setOrdenPuntaje("asc")}
+                  className={cn(
+                    "rounded-md px-2 py-1.5 transition-colors",
+                    ordenPuntaje === "asc" ? "bg-background text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Menor a mayor
+                </button>
+              </div>
             </div>
 
             <div className="overflow-hidden rounded-lg border">
@@ -177,15 +204,17 @@ export default function LeaderboardPage() {
                   {filas?.map((fila, index) => (
                     <TableRow key={fila.proyectoId}>
                       <TableCell className="text-muted-foreground">{index + 1}</TableCell>
-                      <TableCell className="max-w-[200px] truncate font-medium">
-                        {fila.nombre}
-                        {index === 0 && (
-                          <Badge variant="secondary" className="ml-2">
-                            Ganador
-                          </Badge>
-                        )}
+                      <TableCell className="min-w-48 whitespace-normal font-medium">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                          <span className="break-words">{fila.nombre}</span>
+                          {index === 0 && ordenPuntaje === "desc" && (
+                            <Badge variant="secondary">
+                              Ganador
+                            </Badge>
+                          )}
+                        </div>
                         {categoriaActiva === null && (
-                          <span className="block truncate text-xs text-muted-foreground sm:hidden">
+                          <span className="mt-1 block text-xs text-muted-foreground sm:hidden">
                             {fila.categoria.nombre}
                           </span>
                         )}
