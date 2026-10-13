@@ -2,8 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { CircleHelp } from "lucide-react";
 import { AppFooter } from "@/components/app-footer";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import {
   Table,
@@ -27,11 +36,23 @@ type LeaderboardData = {
   rankingPorCategoria: { categoria: string; proyectos: FilaRanking[] }[];
 };
 
+type ModoPuntaje = "acumulado" | "promedio";
+
+function ordenarFilas(filas: FilaRanking[], modoPuntaje: ModoPuntaje) {
+  return [...filas].sort((a, b) => {
+    const puntajeA = modoPuntaje === "acumulado" ? a.puntajeTotal : a.puntajeTotal / a.numeroEvaluaciones;
+    const puntajeB = modoPuntaje === "acumulado" ? b.puntajeTotal : b.puntajeTotal / b.numeroEvaluaciones;
+    return puntajeB - puntajeA;
+  });
+}
+
 export default function LeaderboardPage() {
   const router = useRouter();
   const [data, setData] = useState<LeaderboardData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [categoriaActiva, setCategoriaActiva] = useState<string | null>(null);
+  const [modoPuntaje, setModoPuntaje] = useState<ModoPuntaje>("acumulado");
+  const [infoAbierta, setInfoAbierta] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -54,16 +75,57 @@ export default function LeaderboardPage() {
     load();
   }, [router]);
 
-  const filas: FilaRanking[] | undefined = data
+  const filasSinOrdenar: FilaRanking[] | undefined = data
     ? categoriaActiva
       ? data.rankingPorCategoria.find((c) => c.categoria === categoriaActiva)?.proyectos
       : data.rankingGlobal
     : undefined;
+  const filas = filasSinOrdenar ? ordenarFilas(filasSinOrdenar, modoPuntaje) : undefined;
+  const usandoPromedio = modoPuntaje === "promedio";
 
   return (
     <>
       <main className="mx-auto w-full max-w-4xl flex-1 p-4">
-        <h1 className="mb-4 text-lg font-medium">Leaderboard</h1>
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-lg font-medium">Leaderboard</h1>
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              aria-label="Cómo se calculan los puntajes"
+              onClick={() => setInfoAbierta(true)}
+            >
+              <CircleHelp className="size-4" />
+            </Button>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={usandoPromedio}
+              aria-label="Usar promedio por evaluación registrada"
+              onClick={() => setModoPuntaje((modo) => modo === "acumulado" ? "promedio" : "acumulado")}
+              className={cn(
+                "flex items-center gap-2 rounded-full border px-2.5 py-1.5 text-xs font-medium transition-colors",
+                usandoPromedio ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-foreground"
+              )}
+            >
+              <span>Promedio por evaluación</span>
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "flex h-4 w-7 items-center rounded-full p-0.5 transition-colors",
+                  usandoPromedio ? "bg-primary-foreground/30" : "bg-muted"
+                )}
+              >
+                <span
+                  className={cn(
+                    "size-3 rounded-full bg-background shadow-xs transition-transform",
+                    usandoPromedio && "translate-x-3"
+                  )}
+                />
+              </span>
+            </button>
+          </div>
+        </div>
 
         {error && <p className="text-sm text-destructive">{error}</p>}
         {!data && !error && <p className="text-sm text-muted-foreground">Cargando...</p>}
@@ -107,7 +169,7 @@ export default function LeaderboardPage() {
                     {categoriaActiva === null && (
                       <TableHead className="hidden sm:table-cell">Categoría</TableHead>
                     )}
-                    <TableHead className="text-right">Puntaje</TableHead>
+                    <TableHead className="text-right">{usandoPromedio ? "Promedio" : "Puntaje"}</TableHead>
                     <TableHead className="hidden text-right sm:table-cell">Evals.</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -134,7 +196,7 @@ export default function LeaderboardPage() {
                         </TableCell>
                       )}
                       <TableCell className="text-right font-medium">
-                        {fila.puntajeTotal.toFixed(2)}
+                        {(usandoPromedio ? fila.puntajeTotal / fila.numeroEvaluaciones : fila.puntajeTotal).toFixed(2)}
                       </TableCell>
                       <TableCell className="hidden text-right text-muted-foreground sm:table-cell">
                         {fila.numeroEvaluaciones}
@@ -154,6 +216,23 @@ export default function LeaderboardPage() {
           </>
         )}
       </main>
+      <Dialog open={infoAbierta} onOpenChange={setInfoAbierta}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Formas de calcular el leaderboard</DialogTitle>
+            <DialogDescription className="space-y-3">
+              <span className="block">
+                <strong className="text-foreground">Puntaje acumulado.</strong>{" "}
+                Suma el puntaje final de cada evaluación registrada. Esta es la vista predeterminada.
+              </span>
+              <span className="block">
+                <strong className="text-foreground">Promedio por evaluación.</strong>{" "}
+                Divide el puntaje acumulado entre las evaluaciones registradas. Sirve para comparar los proyectos cuando, por una situación excepcional, no todos tuvieron acceso a la misma cantidad de jurados. No asume evaluaciones que no existen.
+              </span>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
       <AppFooter />
     </>
   );
